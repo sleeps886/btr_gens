@@ -1,0 +1,72 @@
+[
+  {
+    "batch": "batch_20261113_145533_509116",
+    "sample": "sample_0001",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_145533_509116",
+    "sample": "sample_0002",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151812_a2db92",
+    "sample": "sample_0001",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151812_a2db92",
+    "sample": "sample_0002",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0001",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0002",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0003",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0004",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0005",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0006",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0007",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0008",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0009",
+    "state": "completed"
+  },
+  {
+    "batch": "batch_20261113_151936_b4067d",
+    "sample": "sample_0010",
+    "state": "completed"
+  }
+]

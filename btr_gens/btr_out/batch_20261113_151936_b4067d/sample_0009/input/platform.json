@@ -1,0 +1,43 @@
+{
+  "T_MAX": 600,
+  "DT": 1,
+  "B_MIN": 0,
+  "B_MAX": 180,
+  "REF_LAT": 30,
+  "REF_LON": 122,
+  "EARTH_R": 6371000,
+  "platforms": [
+    {
+      "name": "A",
+      "start_ll": [
+        30.0623,
+        122.0415
+      ],
+      "heading_deg": 26.754718922784672,
+      "speed_kn": 0.0,
+      "hull_m": [
+        0,
+        0
+      ],
+      "tow_m": [
+        -150,
+        0
+      ],
+      "color": "#ffd400",
+      "bounds": {
+        "lat": [
+          29.85,
+          30.2
+        ],
+        "lon": [
+          121.75,
+          122.35
+        ]
+      }
+    }
+  ],
+  "platform_motion_model": "constant_heading_constant_speed",
+  "image_time_axis": "bottom_to_top",
+  "bearing_convention": "relative_heading_folded_0_180",
+  "left_right_ambiguous": true
+}

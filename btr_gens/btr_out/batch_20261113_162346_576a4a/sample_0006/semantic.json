@@ -1,0 +1,665 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "SEM-batch_20261113_162346_576a4a-sample_0006",
+  "generated_at": "2026-11-13 16:23:52",
+  "summary_nl": "仿真参考数据：1个平台，4个目标；不是模型预测。",
+  "source": {
+    "generator": "btr_gens/simulation_reference",
+    "run_dir": "C:\\Users\\LENOVO\\Desktop\\btr_gens\\btr_gens\\btr_out\\batch_20261113_162346_576a4a\\sample_0006",
+    "seed": 20260916,
+    "dataset": null,
+    "files": {
+      "A": {
+        "track": "truth/btr_A_track.txt",
+        "hull": "truth/btr_A_hull.txt",
+        "tow": "truth/btr_A_tow.txt"
+      }
+    }
+  },
+  "sim_settings": {
+    "t_max_s": 600.0,
+    "dt_s": 1,
+    "bearing_range_deg": [
+      0,
+      180
+    ],
+    "bearing_step_deg": 0.25,
+    "earth_radius_m": 6371000.0,
+    "projection_ref": {
+      "lat": 30,
+      "lon": 122
+    },
+    "noise_std": 0.031462447713215734,
+    "clutter_lam": 0.012657092134482684,
+    "db_range": [
+      -5,
+      16
+    ]
+  },
+  "scenario_summary": {
+    "platform_state": "静止",
+    "distance_class": "混合",
+    "target_count_class": "多",
+    "target_total": 4,
+    "crossing": "是",
+    "crossing_count": 1,
+    "notes": [
+      "距离按全时段最小CPA分档；≤2个为少，>2个为多；跨平台目标编号去重；穿越按CPA<0.5km口径。",
+      "与预设场景的近远/穿越标签不一定同口径，不将生成意图作为验证结论。"
+    ]
+  },
+  "platforms": [
+    {
+      "platform_id": "A",
+      "self": {
+        "position_start": {
+          "lat": 30.0623,
+          "lon": 122.0415
+        },
+        "position_end": {
+          "lat": 30.0623,
+          "lon": 122.0415
+        },
+        "heading_deg": 33.978410738949165,
+        "speed_kn": 0.0,
+        "speed_ms": 0.0,
+        "motion_state": "静止",
+        "array_hull": {
+          "type": "舷侧阵",
+          "mount": "船体固定偏移",
+          "offset_m": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "array_tow": {
+          "type": "拖曳线列阵",
+          "mount": "船体固定偏移",
+          "offset_m": {
+            "x": -150.0,
+            "y": 0.0
+          },
+          "baseline_m": 150.0
+        },
+        "bounds": {
+          "lat": [
+            29.85,
+            30.2
+          ],
+          "lon": [
+            121.75,
+            122.35
+          ]
+        }
+      },
+      "observation": {
+        "t_range_s": [
+          0,
+          600.0
+        ],
+        "dt_s": 1.0,
+        "bearing_convention": "相对船头舷角，折叠0～180°",
+        "left_right_ambiguous": true
+      },
+      "targets": [
+        {
+          "target_id": "T1",
+          "raw_label": null,
+          "kinematics": {
+            "speed_kn": 19.512642158539933,
+            "speed_ms": 10.038161682607917,
+            "position_start": {
+              "lat": 30.036485630495246,
+              "lon": 122.12430928155409
+            },
+            "position_end": {
+              "lat": 30.036485630495246,
+              "lon": 122.0633092815541
+            },
+            "amp": 0.2647686799113274,
+            "observation_window_s": [
+              0.0,
+              600.0
+            ],
+            "waypoints_done_s": 585.0
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 75.8,
+              "bearing_end_deg": 109.8,
+              "bearing_rate_deg_per_s": 0.056666666666666664,
+              "cpa": {
+                "range_km": 3.56,
+                "time_s": 585.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 74.8,
+              "bearing_end_deg": 107.5,
+              "bearing_rate_deg_per_s": 0.05450000000000001,
+              "cpa": {
+                "range_km": 3.51,
+                "time_s": 585.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": null,
+              "method": "仅凭轨迹与航速不能可靠确定目标类型",
+              "rule_id": "RULE-TYPE-UNKNOWN",
+              "confidence": 0
+            },
+            "motion_model": {
+              "value": "分段直线/到点停留",
+              "method": "依据生成路径定义，不代表图像识别结果",
+              "rule_id": "RULE-PATH-01",
+              "confidence": 1
+            },
+            "course_estimate_deg": {
+              "value": 270.01526681812936,
+              "method": "全仿真起终点反解的净位移方向，不是机动目标瞬时航向",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.6
+            },
+            "approach_state": {
+              "value": "最近通过（先接近后远离）",
+              "method": "按TXT全时段CPA时刻与有效观测窗比较，非逐时刻径向运动判定",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.6
+            },
+            "distance_class": {
+              "value": "近",
+              "method": "按双阵全仿真最小CPA分档，非初始/平均距离",
+              "rule_id": "RULE-DIST-01",
+              "confidence": 1
+            },
+            "crossing": {
+              "value": false,
+              "method": "最小CPA<0.5km视作极近通过，不等同几何航迹交叉",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.6
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  109.77841073894916,
+                  318.1784107389492
+                ],
+                "note": "起始折叠方位的绝对方位候选；是否可解需进一步评估"
+              },
+              "method": "按航向±舷角计算",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 1
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "当前二维仿真不含深度观测或深度真值",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0
+            },
+            "snr_est_db": {
+              "value": 18.50148206625893,
+              "method": "20log10(amp/noise_std)的幅度比启发式指标，不是由图像测得的物理SNR",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.5
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "按幅度比指标和观测时长粗分级，非定位误差等级",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.5
+            },
+            "threat_level": {
+              "value": null,
+              "method": "无意图/身份等依据，未评估",
+              "rule_id": "RULE-THREAT-UNKNOWN",
+              "confidence": 0
+            }
+          },
+          "warnings": [
+            "目标走完航点后停留；静止平台下后续方位恒定，距离可观性需另行评估"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "truth/btr_A_hull.txt#L6",
+              "truth/btr_A_tow.txt#L6"
+            ]
+          },
+          "summary_nl": "T1：有效观测窗0～600秒；全时段最小阵列CPA约3.51km。"
+        },
+        {
+          "target_id": "T2",
+          "raw_label": null,
+          "kinematics": {
+            "speed_kn": 23,
+            "speed_ms": 11.832212,
+            "position_start": {
+              "lat": 30.0225,
+              "lon": 121.969
+            },
+            "position_end": {
+              "lat": 30.0225,
+              "lon": 122.04262
+            },
+            "amp": 0.2355186523725531,
+            "observation_window_s": [
+              60.0,
+              560.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 156.3,
+              "bearing_end_deg": 144.6,
+              "bearing_rate_deg_per_s": -0.019500000000000028,
+              "cpa": {
+                "range_km": 4.04,
+                "time_s": 520.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 155.9,
+              "bearing_end_deg": 143.5,
+              "bearing_rate_deg_per_s": -0.020666666666666677,
+              "cpa": {
+                "range_km": 3.9,
+                "time_s": 519.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": null,
+              "method": "仅凭轨迹与航速不能可靠确定目标类型",
+              "rule_id": "RULE-TYPE-UNKNOWN",
+              "confidence": 0
+            },
+            "motion_model": {
+              "value": "曲线",
+              "method": "依据生成路径定义，不代表图像识别结果",
+              "rule_id": "RULE-PATH-01",
+              "confidence": 1
+            },
+            "course_estimate_deg": {
+              "value": 89.98158248090527,
+              "method": "全仿真起终点反解的净位移方向，不是机动目标瞬时航向",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.6
+            },
+            "approach_state": {
+              "value": "最近通过（先接近后远离）",
+              "method": "按TXT全时段CPA时刻与有效观测窗比较，非逐时刻径向运动判定",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.6
+            },
+            "distance_class": {
+              "value": "近",
+              "method": "按双阵全仿真最小CPA分档，非初始/平均距离",
+              "rule_id": "RULE-DIST-01",
+              "confidence": 1
+            },
+            "crossing": {
+              "value": false,
+              "method": "最小CPA<0.5km视作极近通过，不等同几何航迹交叉",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.6
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  190.27841073894916,
+                  237.67841073894914
+                ],
+                "note": "起始折叠方位的绝对方位候选；是否可解需进一步评估"
+              },
+              "method": "按航向±舷角计算",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 1
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "当前二维仿真不含深度观测或深度真值",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0
+            },
+            "snr_est_db": {
+              "value": 17.484656016767048,
+              "method": "20log10(amp/noise_std)的幅度比启发式指标，不是由图像测得的物理SNR",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.5
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "按幅度比指标和观测时长粗分级，非定位误差等级",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.5
+            },
+            "threat_level": {
+              "value": null,
+              "method": "无意图/身份等依据，未评估",
+              "rule_id": "RULE-THREAT-UNKNOWN",
+              "confidence": 0
+            }
+          },
+          "warnings": [
+            "曲线速度由公式导数决定；speed_kn/speed_ms仅为输入标称值，不是实测航速"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "truth/btr_A_hull.txt#L7",
+              "truth/btr_A_tow.txt#L7"
+            ]
+          },
+          "summary_nl": "T2：有效观测窗60～560秒；全时段最小阵列CPA约3.9km。"
+        },
+        {
+          "target_id": "T3",
+          "raw_label": null,
+          "kinematics": {
+            "speed_kn": 31.592261734479276,
+            "speed_ms": 16.252449495732456,
+            "position_start": {
+              "lat": 30.00491056087055,
+              "lon": 121.97809174862093
+            },
+            "position_end": {
+              "lat": 30.00491056087055,
+              "lon": 122.05809174862094
+            },
+            "amp": 0.16234614139446782,
+            "observation_window_s": [
+              150.0,
+              450.0
+            ],
+            "waypoints_done_s": 474.0
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 170.2,
+              "bearing_end_deg": 132.0,
+              "bearing_rate_deg_per_s": -0.06366666666666665,
+              "cpa": {
+                "range_km": 6.38,
+                "time_s": 376.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 170.1,
+              "bearing_end_deg": 131.0,
+              "bearing_rate_deg_per_s": -0.06516666666666665,
+              "cpa": {
+                "range_km": 6.26,
+                "time_s": 370.0
+              }
+            },
+            "parallax_t300": {
+              "at_s": 300,
+              "target_label": "T3",
+              "hull_bearing_deg": 156.9,
+              "tow_bearing_deg": 156.4,
+              "delta_deg": 0.5
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": null,
+              "method": "仅凭轨迹与航速不能可靠确定目标类型",
+              "rule_id": "RULE-TYPE-UNKNOWN",
+              "confidence": 0
+            },
+            "motion_model": {
+              "value": "分段直线/到点停留",
+              "method": "依据生成路径定义，不代表图像识别结果",
+              "rule_id": "RULE-PATH-01",
+              "confidence": 1
+            },
+            "course_estimate_deg": {
+              "value": 89.97999702871213,
+              "method": "全仿真起终点反解的净位移方向，不是机动目标瞬时航向",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.6
+            },
+            "approach_state": {
+              "value": "最近通过（先接近后远离）",
+              "method": "按TXT全时段CPA时刻与有效观测窗比较，非逐时刻径向运动判定",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.6
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "按双阵全仿真最小CPA分档，非初始/平均距离",
+              "rule_id": "RULE-DIST-01",
+              "confidence": 1
+            },
+            "crossing": {
+              "value": false,
+              "method": "最小CPA<0.5km视作极近通过，不等同几何航迹交叉",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.6
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  204.17841073894914,
+                  223.77841073894916
+                ],
+                "note": "起始折叠方位的绝对方位候选；是否可解需进一步评估"
+              },
+              "method": "按航向±舷角计算",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 1
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "当前二维仿真不含深度观测或深度真值",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0
+            },
+            "snr_est_db": {
+              "value": 14.252989281236237,
+              "method": "20log10(amp/noise_std)的幅度比启发式指标，不是由图像测得的物理SNR",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.5
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "按幅度比指标和观测时长粗分级，非定位误差等级",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.5
+            },
+            "threat_level": {
+              "value": null,
+              "method": "无意图/身份等依据，未评估",
+              "rule_id": "RULE-THREAT-UNKNOWN",
+              "confidence": 0
+            }
+          },
+          "warnings": [
+            "目标走完航点后停留；静止平台下后续方位恒定，距离可观性需另行评估"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "truth/btr_A_hull.txt#L8",
+              "truth/btr_A_tow.txt#L8",
+              "truth/btr_A_tow.txt#L12"
+            ]
+          },
+          "summary_nl": "T3：有效观测窗150～450秒；全时段最小阵列CPA约6.26km。"
+        },
+        {
+          "target_id": "T4",
+          "raw_label": null,
+          "kinematics": {
+            "speed_kn": 10.915945249562382,
+            "speed_ms": 5.61564253796587,
+            "position_start": {
+              "lat": 30.062046718884066,
+              "lon": 122.0619292644474
+            },
+            "position_end": {
+              "lat": 30.062046718884066,
+              "lon": 122.02691806608998
+            },
+            "amp": 0.09715249670732512,
+            "observation_window_s": [
+              100.0,
+              560.0
+            ],
+            "waypoints_done_s": 908.0
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 56.8,
+              "bearing_end_deg": 125.1,
+              "bearing_rate_deg_per_s": 0.11383333333333333,
+              "cpa": {
+                "range_km": 0.03,
+                "time_s": 350.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 53.3,
+              "bearing_end_deg": 119.8,
+              "bearing_rate_deg_per_s": 0.11083333333333334,
+              "cpa": {
+                "range_km": 0.1,
+                "time_s": 365.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": null,
+              "method": "仅凭轨迹与航速不能可靠确定目标类型",
+              "rule_id": "RULE-TYPE-UNKNOWN",
+              "confidence": 0
+            },
+            "motion_model": {
+              "value": "分段直线/到点停留",
+              "method": "依据生成路径定义，不代表图像识别结果",
+              "rule_id": "RULE-PATH-01",
+              "confidence": 1
+            },
+            "course_estimate_deg": {
+              "value": 270.0087692120356,
+              "method": "全仿真起终点反解的净位移方向，不是机动目标瞬时航向",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.6
+            },
+            "approach_state": {
+              "value": "最近通过（先接近后远离）",
+              "method": "按TXT全时段CPA时刻与有效观测窗比较，非逐时刻径向运动判定",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.6
+            },
+            "distance_class": {
+              "value": "极近",
+              "method": "按双阵全仿真最小CPA分档，非初始/平均距离",
+              "rule_id": "RULE-DIST-01",
+              "confidence": 1
+            },
+            "crossing": {
+              "value": true,
+              "method": "最小CPA<0.5km视作极近通过，不等同几何航迹交叉",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.6
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  90.77841073894916,
+                  337.1784107389492
+                ],
+                "note": "起始折叠方位的绝对方位候选；是否可解需进一步评估"
+              },
+              "method": "按航向±舷角计算",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 1
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "当前二维仿真不含深度观测或深度真值",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0
+            },
+            "snr_est_db": {
+              "value": 9.793229182707016,
+              "method": "20log10(amp/noise_std)的幅度比启发式指标，不是由图像测得的物理SNR",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.5
+            },
+            "observability_grade": {
+              "value": "C",
+              "method": "按幅度比指标和观测时长粗分级，非定位误差等级",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.5
+            },
+            "threat_level": {
+              "value": null,
+              "method": "无意图/身份等依据，未评估",
+              "rule_id": "RULE-THREAT-UNKNOWN",
+              "confidence": 0
+            }
+          },
+          "warnings": [
+            "弱目标幅度小于0.15"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "truth/btr_A_hull.txt#L9",
+              "truth/btr_A_tow.txt#L9"
+            ]
+          },
+          "summary_nl": "T4：有效观测窗100～560秒；全时段最小阵列CPA约0.03km。"
+        }
+      ],
+      "cross_events": [
+        {
+          "target_id": "T4",
+          "array_name": "hull",
+          "cpa_km": 0.03,
+          "time_s": 350.0
+        },
+        {
+          "target_id": "T4",
+          "array_name": "tow",
+          "cpa_km": 0.1,
+          "time_s": 365.0
+        }
+      ],
+      "parallax_extra": [],
+      "warnings": [],
+      "summary_nl": "平台A静止，包含4个仿真目标。"
+    }
+  ],
+  "environment": {},
+  "quality": {
+    "label_check": null,
+    "parsed_sources": [
+      "truth/btr_A_track.txt",
+      "truth/btr_A_hull.txt",
+      "truth/btr_A_tow.txt",
+      "meta.json/params"
+    ],
+    "warnings": [
+      "生成端真值及规则参考结论，不是模型识别结果；禁止作为盲测输入。",
+      "TXT方位起止/CPA沿用原文件口径（通常为全仿真时段），并非仅有效观测窗。",
+      "规则置信度为人工设定的规则强度，不是经过校准的正确概率。"
+    ],
+    "schema_validation": {
+      "schema": "btr_semantic_schema_v1.json",
+      "ok": true,
+      "validator": "builtin: all assertion keywords used in supplied schema; not full draft-07 implementation"
+    }
+  }
+}

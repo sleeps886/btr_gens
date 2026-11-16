@@ -1,0 +1,135 @@
+{
+  "count": 10,
+  "seed": 20260911,
+  "percent": 15,
+  "mode": "perturb",
+  "params": {
+    "T_MAX": 600,
+    "DT": 1,
+    "B_MIN": 0,
+    "B_MAX": 180,
+    "DB_STEP": 0.25,
+    "NOISE_STD": 0.03,
+    "CLUTTER_LAM": 0.012,
+    "DB_RANGE": [
+      -5,
+      16
+    ],
+    "SEED": 20260911,
+    "EARTH_R": 6371000,
+    "REF_LAT": 30,
+    "REF_LON": 122,
+    "OUT_DIR": "",
+    "platforms": [
+      {
+        "name": "A",
+        "start_ll": [
+          30.0623,
+          122.0415
+        ],
+        "heading_deg": 30,
+        "speed_kn": 0,
+        "hull_m": [
+          0,
+          0
+        ],
+        "tow_m": [
+          -150,
+          0
+        ],
+        "color": "#ffd400",
+        "bounds": {
+          "lat": [
+            29.85,
+            30.2
+          ],
+          "lon": [
+            121.75,
+            122.35
+          ]
+        }
+      }
+    ],
+    "targets": [
+      {
+        "name": "T1",
+        "start": [
+          30.036,
+          122.124
+        ],
+        "speed_kn": 19,
+        "amp": 0.3,
+        "sigma_hull": 4,
+        "sigma_tow": 1.6,
+        "t_on": 0,
+        "t_off": 600,
+        "color": "#ff9d00",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.036,
+            122.063
+          ]
+        ]
+      },
+      {
+        "name": "T2",
+        "start": [
+          30.0225,
+          121.969
+        ],
+        "speed_kn": 23,
+        "amp": 0.22,
+        "sigma_hull": 4,
+        "sigma_tow": 1.6,
+        "t_on": 60,
+        "t_off": 560,
+        "color": "#ff00cc",
+        "path_type": "curve",
+        "curve_func": "(30.0225 + 0.0045*np.sin(2*np.pi*t/400.0), 121.9690 + 0.0001227*t)"
+      },
+      {
+        "name": "T3",
+        "start": [
+          30.0045,
+          121.978
+        ],
+        "speed_kn": 29,
+        "amp": 0.18,
+        "sigma_hull": 5,
+        "sigma_tow": 2,
+        "t_on": 150,
+        "t_off": 450,
+        "color": "#00ffff",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.0045,
+            122.058
+          ]
+        ]
+      },
+      {
+        "name": "T4",
+        "start": [
+          30.063,
+          122.062
+        ],
+        "speed_kn": 10,
+        "amp": 0.1,
+        "sigma_hull": 6,
+        "sigma_tow": 2.4,
+        "t_on": 100,
+        "t_off": 560,
+        "color": "#aaff00",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.063,
+            122.009
+          ]
+        ]
+      }
+    ]
+  }
+}

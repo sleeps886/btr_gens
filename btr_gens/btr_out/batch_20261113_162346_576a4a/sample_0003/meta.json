@@ -1,0 +1,147 @@
+{
+  "params": {
+    "T_MAX": 600,
+    "DT": 1,
+    "B_MIN": 0,
+    "B_MAX": 180,
+    "DB_STEP": 0.25,
+    "NOISE_STD": 0.026359406363956173,
+    "CLUTTER_LAM": 0.013452983328884985,
+    "DB_RANGE": [
+      -5,
+      16
+    ],
+    "SEED": 20260913,
+    "EARTH_R": 6371000,
+    "REF_LAT": 30,
+    "REF_LON": 122,
+    "OUT_DIR": "C:\\Users\\LENOVO\\Desktop\\btr_gens\\btr_gens\\btr_out\\batch_20261113_162346_576a4a\\sample_0003",
+    "platforms": [
+      {
+        "name": "A",
+        "start_ll": [
+          30.0623,
+          122.0415
+        ],
+        "heading_deg": 27.208053426162177,
+        "speed_kn": 0.0,
+        "hull_m": [
+          0,
+          0
+        ],
+        "tow_m": [
+          -150,
+          0
+        ],
+        "color": "#ffd400",
+        "bounds": {
+          "lat": [
+            29.85,
+            30.2
+          ],
+          "lon": [
+            121.75,
+            122.35
+          ]
+        }
+      }
+    ],
+    "targets": [
+      {
+        "name": "T1",
+        "start": [
+          30.034652358890277,
+          122.1236877677333
+        ],
+        "speed_kn": 18.546590676113325,
+        "amp": 0.33545360159187054,
+        "sigma_hull": 4.347377742568966,
+        "sigma_tow": 1.5386864270291252,
+        "t_on": 0,
+        "t_off": 600,
+        "color": "#ff9d00",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.034652358890277,
+            122.06268776773331
+          ]
+        ]
+      },
+      {
+        "name": "T2",
+        "start": [
+          30.0225,
+          121.969
+        ],
+        "speed_kn": 23,
+        "amp": 0.200790226286964,
+        "sigma_hull": 4.050662267409459,
+        "sigma_tow": 1.4243845809281597,
+        "t_on": 60,
+        "t_off": 560,
+        "color": "#ff00cc",
+        "path_type": "curve",
+        "curve_func": "(30.0225 + 0.0045*np.sin(2*np.pi*t/400.0), 121.9690 + 0.0001227*t)"
+      },
+      {
+        "name": "T3",
+        "start": [
+          30.004215609166568,
+          121.97778846622533
+        ],
+        "speed_kn": 25.877372525571953,
+        "amp": 0.20309179555511342,
+        "sigma_hull": 5.289471306541592,
+        "sigma_tow": 1.9959802605152248,
+        "t_on": 150,
+        "t_off": 450,
+        "color": "#00ffff",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.004215609166568,
+            122.05778846622535
+          ]
+        ]
+      },
+      {
+        "name": "T4",
+        "start": [
+          30.06307884601443,
+          122.0611393720312
+        ],
+        "speed_kn": 9.43711821820733,
+        "amp": 0.10626654802062561,
+        "sigma_hull": 6.3971728181958945,
+        "sigma_tow": 2.099416801938314,
+        "t_on": 100,
+        "t_off": 560,
+        "color": "#aaff00",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.06307884601443,
+            122.00813937203121
+          ]
+        ]
+      }
+    ],
+    "SHOW_TRUTH_OVERLAY": false,
+    "EXPORT_TRUTH": true
+  },
+  "sample_id": "sample_0003",
+  "state": "completed",
+  "seed": 20260913,
+  "files": {
+    "sample_0003/input/btr_A_hull.png": "4027ca7052916cddddb57ebf585e16d92aa473aff720404d3d589b31bcf36c79",
+    "sample_0003/input/btr_A_tow.png": "0c820c7ba38324cdd315b5b16a6a3c3ca2600d3bd14b0fcd1605981fff111b7d",
+    "sample_0003/input/platform.json": "94d6d1461cf01c5ecb144d279b8200a8b019a0e1e3cda5f3a53d021739babe6d",
+    "sample_0003/semantic.json": "410460779b129f9d1988c1a8347b0e070d0cfdac169d88b4c8cd2d9d009168e5",
+    "sample_0003/truth/btr_A_hull.txt": "7fbc7531e1341fba41b6649d0cd0686a979b08f923f0f62b2e4c6bf6b00b00c2",
+    "sample_0003/truth/btr_A_tow.txt": "5642b0f5274465f6acc60375b568fd296ec77c68573ef718df4843ba1376bd31",
+    "sample_0003/truth/btr_A_track.png": "4fe46a5d4a73bed780866fee3c2004a02c0e884133d28a8d0f6e555beefae4dc",
+    "sample_0003/truth/btr_A_track.txt": "c9b9b2a15e6ba8182996b4dcdfb60cd769797eb0b4edb5f930b56bf4694740b9",
+    "sample_0003/truth/btr_A_truth.jsonl": "223958bf72c6c8257e6e90dc08836a1524bb1b0b564d621483bcf4b750886693"
+  }
+}

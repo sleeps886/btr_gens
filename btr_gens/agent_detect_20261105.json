@@ -1,0 +1,544 @@
+{
+  "params": {
+    "start_ll": [
+      30.0,
+      122.0
+    ],
+    "heading": -30.0,
+    "speed_kn": 0.0,
+    "hull_m": [
+      0.0,
+      0.0
+    ],
+    "tow_m": [
+      -180.0,
+      0.0
+    ],
+    "t_max": 600.0,
+    "ref": [
+      30.0,
+      122.0
+    ],
+    "cmap": "auto"
+  },
+  "t_max": 600.0,
+  "b_range": [
+    0.0,
+    180.0
+  ],
+  "cmap": "gui",
+  "calib": {
+    "hull": {
+      "rect": [
+        22.0,
+        737.0,
+        98.0,
+        1262.0
+      ],
+      "level": 13.5,
+      "grid_x": [
+        194.0,
+        582.0,
+        971.0
+      ],
+      "grid_y": [
+        72.0,
+        143.0,
+        215.0,
+        287.0,
+        358.0,
+        430.0,
+        502.0,
+        573.0,
+        645.0
+      ],
+      "grid_resid_deg": null,
+      "grid_origin_shift_deg": 0.02575107296138071
+    },
+    "tow": {
+      "rect": [
+        22.0,
+        737.0,
+        98.0,
+        1262.0
+      ],
+      "level": 13.5,
+      "grid_x": [
+        194.0,
+        582.0,
+        971.0
+      ],
+      "grid_y": [
+        72.0,
+        143.0,
+        215.0,
+        287.0,
+        358.0,
+        430.0,
+        502.0,
+        573.0,
+        645.0
+      ],
+      "grid_resid_deg": null,
+      "grid_origin_shift_deg": 0.02575107296138071
+    }
+  },
+  "targets": [
+    {
+      "name": "目标1",
+      "anchor": {
+        "bearing_hull": 59.85099325567136,
+        "bearing_tow": 59.93613590578642,
+        "t_anchor": 299.0,
+        "peak_hull": 16.0,
+        "peak_tow": 16.0,
+        "anchor_frac": 0.5,
+        "level": 13.5
+      },
+      "branches": {
+        "1": {
+          "t_start": 61.0,
+          "t_end": 559.0,
+          "n_epoch": 189,
+          "start": {
+            "lat": 30.077940830294807,
+            "lon": 122.0470399366009,
+            "range_hull_km": 9.779048399315787,
+            "range_tow_km": 9.876679787879885,
+            "bearing_hull": 57.59497624156958,
+            "bearing_tow": 56.774048795814124,
+            "parallax": 0.8209274457554585
+          },
+          "end": {
+            "lat": 30.078456703462454,
+            "lon": 122.05215685263691,
+            "range_hull_km": 10.066492907452853,
+            "range_tow_km": 10.157877972400447,
+            "bearing_hull": 59.929931114076524,
+            "bearing_tow": 58.937926352384736,
+            "parallax": 0.9920047616917884
+          },
+          "bearing_sweep_hull": 2.334954872506941,
+          "bearing_sweep_tow": 2.163877556570611,
+          "range_change_km": 0.287444508137065,
+          "range_median_km": 10.032939292741176,
+          "range_epoch_sigma_km": 1.3819447214436469,
+          "cpa_km": 9.267770138760598,
+          "cpa_t": 87.0,
+          "parallax_median": 0.8808788494128237,
+          "displacement_km": 0.49607454591580186,
+          "motion": {
+            "speed_mps": 11.708123798387277,
+            "course_deg": 118.56413054233164,
+            "t_start": 61.0,
+            "t_end": 89.0,
+            "v_tangent_mps": 11.708123798387275,
+            "v_radial_mps": 0.0,
+            "radial_observable": false,
+            "radial_significance": 1.061837321572194
+          }
+        },
+        "-1": {
+          "t_start": 61.0,
+          "t_end": 559.0,
+          "n_epoch": 189,
+          "start": {
+            "lat": 30.003690462696717,
+            "lon": 121.89853920140473,
+            "range_hull_km": 9.779048399315716,
+            "range_tow_km": 9.876679787879812,
+            "bearing_hull": 57.59497624156958,
+            "bearing_tow": 56.774048795814124,
+            "parallax": 0.8209274457554585
+          },
+          "end": {
+            "lat": 30.000110712253548,
+            "lon": 121.89546487021907,
+            "range_hull_km": 10.066492907452757,
+            "range_tow_km": 10.157877972400351,
+            "bearing_hull": 59.929931114076524,
+            "bearing_tow": 58.937926352384736,
+            "parallax": 0.9920047616917884
+          },
+          "bearing_sweep_hull": 2.334954872506941,
+          "bearing_sweep_tow": 2.163877556570611,
+          "range_change_km": 0.28744450813704137,
+          "range_median_km": 10.032939292741219,
+          "range_epoch_sigma_km": 1.3819447214436669,
+          "cpa_km": 9.26777013876078,
+          "cpa_t": 87.0,
+          "parallax_median": 0.8808788494128237,
+          "displacement_km": 0.49607454591578437,
+          "motion": {
+            "speed_mps": 11.708123798387314,
+            "course_deg": 181.43586945766836,
+            "t_start": 61.0,
+            "t_end": 89.0,
+            "v_tangent_mps": 11.708123798387314,
+            "v_radial_mps": 0.0,
+            "radial_observable": false,
+            "radial_significance": 1.0618373215725443
+          }
+        }
+      },
+      "truth": {
+        "truth_name": "T2",
+        "chosen_side": -1,
+        "diffs": {
+          "1": {
+            "truth": {
+              "speed_kn": 23.0,
+              "course_deg": 180.0,
+              "start": [
+                30.01,
+                121.9
+              ],
+              "end": [
+                30.0,
+                121.9
+              ],
+              "cpa_km": 9.63,
+              "cpa_t": 94.0,
+              "window": [
+                60.0,
+                560.0
+              ],
+              "bearing_hull": [
+                53.4,
+                60.0
+              ],
+              "bearing_tow": [
+                52.5,
+                59.1
+              ],
+              "t_end_walk": 94.0,
+              "bearing_at_det_start": 57.67865138127564,
+              "bearing_at_det_end": 60.0,
+              "range_at_det_start_km": 9.637672063343315,
+              "range_at_det_end_km": 9.629763124612904
+            },
+            "bearing_rms_deg": 0.1299037658827923,
+            "bearing_max_deg": 0.22731453096260879,
+            "bearing_tow_rms_deg": 0.1160361497730237,
+            "sweep_det_hull_deg": 2.334954872506941,
+            "sweep_truth_hull_deg": 2.3213486187243575,
+            "sweep_err_hull_deg": 0.013606253782583622,
+            "sweep_err_tow_deg": -0.13393090173426003,
+            "bearing_err_start_deg": -0.08367513970605955,
+            "bearing_err_end_deg": -0.07006888592347593,
+            "range_err_mean_km": 0.32297122072572804,
+            "range_err_pct": 3.353797808727563,
+            "cpa_err_km": -0.3622298612394026,
+            "cpa_err_pct": -3.7614731177508056,
+            "cpa_t_err_s": -7.0,
+            "pos_err_start_m": 16400.935317051335,
+            "pos_err_end_m": 17052.834218272295,
+            "pos_err_mean_m": 16931.64217096116,
+            "pos_err_median_m": 17017.934017866857,
+            "parallax_expected_deg": 0.9188251130808567,
+            "truth_speed_window_mps": 11.829247515385374,
+            "truth_course_window_deg": 180.0,
+            "det_speed_kn": 22.758791624330883,
+            "det_course_deg": 118.56413054233164,
+            "truth_window_speed_kn": 22.99423749793053,
+            "truth_window_course_deg": 180.0,
+            "speed_err_kn": -0.23544587359964808,
+            "speed_err_pct": -1.0239342514438141,
+            "course_err_deg": -61.43586945766836,
+            "speed_err_vs_nominal_kn": -0.24120837566911746
+          },
+          "-1": {
+            "truth": {
+              "speed_kn": 23.0,
+              "course_deg": 180.0,
+              "start": [
+                30.01,
+                121.9
+              ],
+              "end": [
+                30.0,
+                121.9
+              ],
+              "cpa_km": 9.63,
+              "cpa_t": 94.0,
+              "window": [
+                60.0,
+                560.0
+              ],
+              "bearing_hull": [
+                53.4,
+                60.0
+              ],
+              "bearing_tow": [
+                52.5,
+                59.1
+              ],
+              "t_end_walk": 94.0,
+              "bearing_at_det_start": 57.67865138127564,
+              "bearing_at_det_end": 60.0,
+              "range_at_det_start_km": 9.637672063343315,
+              "range_at_det_end_km": 9.629763124612904
+            },
+            "bearing_rms_deg": 0.1299037658827923,
+            "bearing_max_deg": 0.22731453096260879,
+            "bearing_tow_rms_deg": 0.1160361497730237,
+            "sweep_det_hull_deg": 2.334954872506941,
+            "sweep_truth_hull_deg": 2.3213486187243575,
+            "sweep_err_hull_deg": 0.013606253782583622,
+            "sweep_err_tow_deg": -0.13393090173426003,
+            "bearing_err_start_deg": -0.08367513970605955,
+            "bearing_err_end_deg": -0.07006888592347593,
+            "range_err_mean_km": 0.322971220725746,
+            "range_err_pct": 3.3537978087277502,
+            "cpa_err_km": -0.3622298612392214,
+            "cpa_err_pct": -3.7614731177489236,
+            "cpa_t_err_s": -7.0,
+            "pos_err_start_m": 142.08545927532234,
+            "pos_err_end_m": 436.8957314398641,
+            "pos_err_mean_m": 379.5189199357564,
+            "pos_err_median_m": 403.93106300770444,
+            "parallax_expected_deg": 0.9188251130808567,
+            "truth_speed_window_mps": 11.829247515385374,
+            "truth_course_window_deg": 180.0,
+            "det_speed_kn": 22.758791624330954,
+            "det_course_deg": 181.43586945766836,
+            "truth_window_speed_kn": 22.99423749793053,
+            "truth_window_course_deg": 180.0,
+            "speed_err_kn": -0.23544587359957703,
+            "speed_err_pct": -1.0239342514434988,
+            "course_err_deg": 1.4358694576683604,
+            "speed_err_vs_nominal_kn": -0.2412083756690464
+          }
+        }
+      }
+    },
+    {
+      "name": "目标2",
+      "anchor": {
+        "bearing_hull": 119.88245254339675,
+        "bearing_tow": 118.89074856132001,
+        "t_anchor": 299.0,
+        "peak_hull": 16.0,
+        "peak_tow": 16.0,
+        "anchor_frac": 0.5,
+        "level": 13.5
+      },
+      "branches": {
+        "1": {
+          "t_start": 3.0,
+          "t_end": 565.0,
+          "n_epoch": 220,
+          "start": {
+            "lat": 30.009768642304504,
+            "lon": 122.09849775841876,
+            "range_hull_km": 9.54709479146323,
+            "range_tow_km": 9.476853474175543,
+            "bearing_hull": 113.46700938546432,
+            "bearing_tow": 112.55088964195967,
+            "parallax": 0.9161197435046518
+          },
+          "end": {
+            "lat": 30.000181027861515,
+            "lon": 122.10209398089115,
+            "range_hull_km": 9.831429131297325,
+            "range_tow_km": 9.742998560447294,
+            "bearing_hull": 119.88268955650929,
+            "bearing_tow": 119.32035561005517,
+            "parallax": 0.5623339464541175
+          },
+          "bearing_sweep_hull": 6.4156801710449685,
+          "bearing_sweep_tow": 6.769465968095503,
+          "range_change_km": 0.28433433983409484,
+          "range_median_km": 9.446986684513956,
+          "range_epoch_sigma_km": 1.2302610648960308,
+          "cpa_km": 9.342967488223321,
+          "cpa_t": 319.0,
+          "parallax_median": 0.9571884549842693,
+          "displacement_km": 1.1209306955848628,
+          "motion": {
+            "speed_mps": 9.929276158234202,
+            "course_deg": 177.0485135349029,
+            "t_start": 3.0,
+            "t_end": 109.0,
+            "v_tangent_mps": 9.929276158234202,
+            "v_radial_mps": 0.0,
+            "radial_observable": false,
+            "radial_significance": 1.1617736505965441
+          }
+        },
+        "-1": {
+          "t_start": 3.0,
+          "t_end": 565.0,
+          "n_epoch": 220,
+          "start": {
+            "lat": 29.931011002338185,
+            "lon": 121.94098247848612,
+            "range_hull_km": 9.547094791462973,
+            "range_tow_km": 9.476853474175286,
+            "bearing_hull": 113.46700938546432,
+            "bearing_tow": 112.55088964195967,
+            "parallax": 0.9161197435046518
+          },
+          "end": {
+            "lat": 29.92352002826239,
+            "lon": 121.9487719816929,
+            "range_hull_km": 9.831429131297543,
+            "range_tow_km": 9.74299856044751,
+            "bearing_hull": 119.88268955650929,
+            "bearing_tow": 119.32035561005517,
+            "parallax": 0.5623339464541175
+          },
+          "bearing_sweep_hull": 6.4156801710449685,
+          "bearing_sweep_tow": 6.769465968095503,
+          "range_change_km": 0.28433433983457146,
+          "range_median_km": 9.44698668451389,
+          "range_epoch_sigma_km": 1.2302610648960037,
+          "cpa_km": 9.342967488223463,
+          "cpa_t": 319.0,
+          "parallax_median": 0.9571884549842693,
+          "displacement_km": 1.1209306955849816,
+          "motion": {
+            "speed_mps": 9.929276158234149,
+            "course_deg": 122.9514864650971,
+            "t_start": 3.0,
+            "t_end": 109.0,
+            "v_tangent_mps": 9.929276158234149,
+            "v_radial_mps": 0.0,
+            "radial_observable": false,
+            "radial_significance": 1.1617736505964935
+          }
+        }
+      },
+      "truth": {
+        "truth_name": "T1",
+        "chosen_side": 1,
+        "diffs": {
+          "1": {
+            "truth": {
+              "speed_kn": 19.0,
+              "course_deg": 180.0,
+              "start": [
+                30.01,
+                122.1
+              ],
+              "end": [
+                30.0,
+                122.1
+              ],
+              "cpa_km": 9.63,
+              "cpa_t": 113.0,
+              "window": [
+                0.0,
+                600.0
+              ],
+              "bearing_hull": [
+                113.4,
+                120.0
+              ],
+              "bearing_tow": [
+                112.4,
+                119.0
+              ],
+              "t_end_walk": 114.0,
+              "bearing_at_det_start": 113.58509646491726,
+              "bearing_at_det_end": 120.0,
+              "range_at_det_start_km": 9.690436003440766,
+              "range_at_det_end_km": 9.629763124612904
+            },
+            "bearing_rms_deg": 0.12484403087529931,
+            "bearing_max_deg": 0.19999919326211568,
+            "bearing_tow_rms_deg": 0.13096980637034458,
+            "sweep_det_hull_deg": 6.4156801710449685,
+            "sweep_truth_hull_deg": 6.414903535082743,
+            "sweep_err_hull_deg": 0.0007766359622252139,
+            "sweep_err_tow_deg": 0.30814614444295785,
+            "bearing_err_start_deg": -0.11808707945293406,
+            "bearing_err_end_deg": -0.11731044349070885,
+            "range_err_mean_km": -0.11652947497916535,
+            "range_err_pct": -1.2097514377515088,
+            "cpa_err_km": -0.28703251177667966,
+            "cpa_err_pct": -2.980607598927099,
+            "cpa_t_err_s": 206.0,
+            "pos_err_start_m": 144.70551534769027,
+            "pos_err_end_m": 202.64762309904552,
+            "pos_err_mean_m": 218.09336741904568,
+            "pos_err_median_m": 202.65104096685837,
+            "parallax_expected_deg": 0.936158809627571,
+            "truth_speed_window_mps": 9.753940933738818,
+            "truth_course_window_deg": 180.0,
+            "det_speed_kn": 19.30098544882281,
+            "det_course_deg": 177.0485135349029,
+            "truth_window_speed_kn": 18.960160743907633,
+            "truth_window_course_deg": 180.0,
+            "speed_err_kn": 0.34082470491517824,
+            "speed_err_pct": 1.7975834146063068,
+            "course_err_deg": -2.951486465097105,
+            "speed_err_vs_nominal_kn": 0.30098544882281075
+          },
+          "-1": {
+            "truth": {
+              "speed_kn": 19.0,
+              "course_deg": 180.0,
+              "start": [
+                30.01,
+                122.1
+              ],
+              "end": [
+                30.0,
+                122.1
+              ],
+              "cpa_km": 9.63,
+              "cpa_t": 113.0,
+              "window": [
+                0.0,
+                600.0
+              ],
+              "bearing_hull": [
+                113.4,
+                120.0
+              ],
+              "bearing_tow": [
+                112.4,
+                119.0
+              ],
+              "t_end_walk": 114.0,
+              "bearing_at_det_start": 113.58509646491726,
+              "bearing_at_det_end": 120.0,
+              "range_at_det_start_km": 9.690436003440766,
+              "range_at_det_end_km": 9.629763124612904
+            },
+            "bearing_rms_deg": 0.12484403087529931,
+            "bearing_max_deg": 0.19999919326211568,
+            "bearing_tow_rms_deg": 0.13096980637034458,
+            "sweep_det_hull_deg": 6.4156801710449685,
+            "sweep_truth_hull_deg": 6.414903535082743,
+            "sweep_err_hull_deg": 0.0007766359622252139,
+            "sweep_err_tow_deg": 0.30814614444295785,
+            "bearing_err_start_deg": -0.11808707945293406,
+            "bearing_err_end_deg": -0.11731044349070885,
+            "range_err_mean_km": -0.11652947497918154,
+            "range_err_pct": -1.2097514377516767,
+            "cpa_err_km": -0.28703251177653755,
+            "cpa_err_pct": -2.9806075989256233,
+            "cpa_t_err_s": 206.0,
+            "pos_err_start_m": 17638.574348613824,
+            "pos_err_end_m": 16864.13990117755,
+            "pos_err_mean_m": 16660.71594058731,
+            "pos_err_median_m": 16536.89641233009,
+            "parallax_expected_deg": 0.936158809627571,
+            "truth_speed_window_mps": 9.753940933738818,
+            "truth_course_window_deg": 180.0,
+            "det_speed_kn": 19.300985448822708,
+            "det_course_deg": 122.9514864650971,
+            "truth_window_speed_kn": 18.960160743907633,
+            "truth_window_course_deg": 180.0,
+            "speed_err_kn": 0.3408247049150752,
+            "speed_err_pct": 1.7975834146057603,
+            "course_err_deg": -57.048513534902895,
+            "speed_err_vs_nominal_kn": 0.3009854488227077
+          }
+        }
+      }
+    }
+  ]
+}

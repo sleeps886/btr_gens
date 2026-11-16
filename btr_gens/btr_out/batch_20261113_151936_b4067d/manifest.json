@@ -1,0 +1,182 @@
+{
+  "id": "batch_20261113_151936_b4067d",
+  "state": "completed",
+  "total": 10,
+  "completed": 10,
+  "failed": 0,
+  "current": 10,
+  "stop": false,
+  "samples": [
+    {
+      "sample_id": "sample_0001",
+      "state": "completed",
+      "seed": 20260911,
+      "files": {
+        "sample_0001/input/btr_A_hull.png": "2f444d9e2664744d0dab9f6a728befa2158617142b7bf509d0ed572c95bcb435",
+        "sample_0001/input/btr_A_tow.png": "606e82c7df5dfe24c01fd0276078ab14e6e2150878e1cd81a116c46287c8da2a",
+        "sample_0001/input/platform.json": "cc850acaaa8d274179608d04707292480be7ead422931e8d28e9795d12960c74",
+        "sample_0001/truth/btr_A_hull.txt": "72d5dbc434d856041e005928c84f9842a686074232297769c5ea5a3868aa1afe",
+        "sample_0001/truth/btr_A_tow.txt": "c171994f24ea9765afe3a2510c6f46fd6f380cbbd560c87d5028f7087d72bcd3",
+        "sample_0001/truth/btr_A_track.png": "b68864b201568d36f9c58c050f1265c745281be782395a091b1d9c61f93ecd3a",
+        "sample_0001/truth/btr_A_track.txt": "7f7077cdc0fc1ff9641dea488b7f0ef42529343e11ece1f098dbfdabc22d523a",
+        "sample_0001/truth/btr_A_truth.jsonl": "52903eb11a0e74960719295564e613c971ea870d118324dbd0e6723926cbc07a",
+        "sample_0001/semantic.json": "1092858a1dc5bb77a5d3e4bd38c5aa615019bbc5526316da0db20d116bb951f6"
+      },
+      "meta_sha256": "2baec6ecd722f8882071974c763532260b6cffdd391ad0251fe0c0262ac42bf4"
+    },
+    {
+      "sample_id": "sample_0002",
+      "state": "completed",
+      "seed": 20260912,
+      "files": {
+        "sample_0002/input/btr_A_hull.png": "2f9463b8c8ade972c03e458a6d32b4c7db4bb4036fbee8330cd5a0d24bd40d4d",
+        "sample_0002/input/btr_A_tow.png": "f409751bdcdb518abbd1cdb7aab9e6c2fea7baeb0eaae223681cd8ed36b30ddc",
+        "sample_0002/input/platform.json": "fc7c9ec0e79325c89602a57462d9c47107d9c1290d2168b5d3eea9bd2a81c297",
+        "sample_0002/truth/btr_A_hull.txt": "c9277f776e94bf949e15c69b06084fda6db63c2b8bea6701716cca761f841948",
+        "sample_0002/truth/btr_A_tow.txt": "0adde3afc94da1bf4a94010cfd1d4fc7e0100c2b20d5e2aa3bfc5e002cf324dc",
+        "sample_0002/truth/btr_A_track.png": "f368b66d2c249b09933cf8c010c36ecac98ce7cdd397743cca3bf4c27ef17768",
+        "sample_0002/truth/btr_A_track.txt": "bc9ee20d3c4e73d46838abc14b176296bd11a10df68e7b63d994483dbeb3f5e8",
+        "sample_0002/truth/btr_A_truth.jsonl": "b016016e0aa1d19800767d1339e47aa2727cabcb15905a2fa0ad80d0db082609",
+        "sample_0002/semantic.json": "59b9b74e38c9c8cc9ab6c94fe4392f01849ca31b74dfd3ff3b45a6c64f3dee21"
+      },
+      "meta_sha256": "f7f1dd2294339184788c6c76657efad9b49960b67f3c05626af2f21b19ff218c"
+    },
+    {
+      "sample_id": "sample_0003",
+      "state": "completed",
+      "seed": 20260913,
+      "files": {
+        "sample_0003/input/btr_A_hull.png": "4027ca7052916cddddb57ebf585e16d92aa473aff720404d3d589b31bcf36c79",
+        "sample_0003/input/btr_A_tow.png": "0c820c7ba38324cdd315b5b16a6a3c3ca2600d3bd14b0fcd1605981fff111b7d",
+        "sample_0003/input/platform.json": "94d6d1461cf01c5ecb144d279b8200a8b019a0e1e3cda5f3a53d021739babe6d",
+        "sample_0003/truth/btr_A_hull.txt": "abf914d4aecc05f9fa299b892171aa5efe6a4bf6585943f3a31542a7fc9488c6",
+        "sample_0003/truth/btr_A_tow.txt": "576a6d7b5cb109de7141ba0418723ff4654ea30c043f1e5bc0c6604d0e0110f6",
+        "sample_0003/truth/btr_A_track.png": "4fe46a5d4a73bed780866fee3c2004a02c0e884133d28a8d0f6e555beefae4dc",
+        "sample_0003/truth/btr_A_track.txt": "0d2e27cc808412fb5f73b9967149b340a0fbc05c9f8fac2bc9fe5b69dbd3a720",
+        "sample_0003/truth/btr_A_truth.jsonl": "223958bf72c6c8257e6e90dc08836a1524bb1b0b564d621483bcf4b750886693",
+        "sample_0003/semantic.json": "92ef7486e081bc09f4080bc6094b9f82c0fc8253b38c637e4eb73e68e28df4b3"
+      },
+      "meta_sha256": "cdfcd9cfb7d4c8cc859c61eb14ed626cbf53fe845b2c86ad22abf8e828276bf5"
+    },
+    {
+      "sample_id": "sample_0004",
+      "state": "completed",
+      "seed": 20260914,
+      "files": {
+        "sample_0004/input/btr_A_hull.png": "8e7addbfe06f37cdbd0a51eefe24498e956afd4ee50ef97319468754348fcea5",
+        "sample_0004/input/btr_A_tow.png": "5f8fc72d97a0c73a8b6cae6ddd4bcee51549ffd1720a6897a8cfdf3f18c9415f",
+        "sample_0004/input/platform.json": "b499ac08cc9033cfaa73f6785172a2abf3c64511a0745c82bcc7b4c94ce88279",
+        "sample_0004/truth/btr_A_hull.txt": "510bc6db4546d35b43d7d1df1ec7d65d308f28863adbd83786d9e5944365b72d",
+        "sample_0004/truth/btr_A_tow.txt": "a93fccdfe5b61eae4eff98cb90499233814a9675c6416be18cf1beacb304c4e5",
+        "sample_0004/truth/btr_A_track.png": "be0f1e1cc730947962cb5fba14e05fd284d5a5f3048dc1ae2395cb223d4cbc87",
+        "sample_0004/truth/btr_A_track.txt": "601cc9a3943f8ea5bfc54f661ed05b09579feac6c0284b1f329941c9ddcbb4ef",
+        "sample_0004/truth/btr_A_truth.jsonl": "b38ccc7ca52a75f975064f04f1b4d51f120ae36d02d496c6555fdad9c1465c2a",
+        "sample_0004/semantic.json": "0e68ad8e495cb7d43ea6af55ce004a9a5e3395e988e51fcaebe97002670448e4"
+      },
+      "meta_sha256": "da7a504d5ed4749fd5127f42d70597a42710ae20acd36077ddfb87752db33180"
+    },
+    {
+      "sample_id": "sample_0005",
+      "state": "completed",
+      "seed": 20260915,
+      "files": {
+        "sample_0005/input/btr_A_hull.png": "80053e6d7b03086ac26b66b36dde018cacaa2a5791415c9604fe46a24e50494a",
+        "sample_0005/input/btr_A_tow.png": "cf8c3909e134e7cde0209ce2afa743939d6b7a864b5d6634c06d35fd9a7228af",
+        "sample_0005/input/platform.json": "f1b006662ddec1e597de7019ee330ab51df7c60a4b170a88078c65bb890da638",
+        "sample_0005/truth/btr_A_hull.txt": "5190e866219830152f6bb59378e76200f27574e3e44fac14082bc0bada968a96",
+        "sample_0005/truth/btr_A_tow.txt": "7704d186a992a2287f5c2408664389d8713f9345c1084fd4724e093bedbfcd29",
+        "sample_0005/truth/btr_A_track.png": "8919c39a9566d3631e2df6f4751b31838d38e87da656032f8d3cfab2681d9973",
+        "sample_0005/truth/btr_A_track.txt": "84b619748424744c8293678475fdc4204442bee2339fab200541b3550d496986",
+        "sample_0005/truth/btr_A_truth.jsonl": "23f4e75bfbfb3f2126e51bc1f73c3559ab850740221b6a0cd1a4d2e8df45a008",
+        "sample_0005/semantic.json": "ed626e6b53b946427a33469fc29cf6e81d4f37f1b18a359427f7ef4d55e4e396"
+      },
+      "meta_sha256": "24b1ded5dce9dd62ce8c43c6f6757eaceb60753a70afd1a233c92fde440e2ceb"
+    },
+    {
+      "sample_id": "sample_0006",
+      "state": "completed",
+      "seed": 20260916,
+      "files": {
+        "sample_0006/input/btr_A_hull.png": "5e5752fc55b8cd681716cd6461c3da5b1c30a4042b7d504158e4f612a70ca448",
+        "sample_0006/input/btr_A_tow.png": "d528b2154010ce82dcfe8cba84b98dc72a14ec94d81a03f45bbae705abbfd381",
+        "sample_0006/input/platform.json": "7ad48cf47a7e07726400290fcb98daad934f337095eb3fe45fc50a3993a09fa5",
+        "sample_0006/truth/btr_A_hull.txt": "4a0707ea5777292c322a176fb33fd3e4fbf0d239b869f5b57c0148914b153a10",
+        "sample_0006/truth/btr_A_tow.txt": "03a501670e7dd727533aad427c50700c9d7e7257928456e7733669a1e4cc700d",
+        "sample_0006/truth/btr_A_track.png": "c5f510169aef3e58e0d55e527873a73bfbb40d7255ffa14248ad6950492609f1",
+        "sample_0006/truth/btr_A_track.txt": "0c5bb348351e6ab21ec2ee037f86208d8415dc7ae83eda4cef7f06985b224c6a",
+        "sample_0006/truth/btr_A_truth.jsonl": "7e3ee70fd2a5892b45b409d8103bf6ef1424858f96e51d36bfe2140d8c3fe927",
+        "sample_0006/semantic.json": "f92185633aa82755927e604845ae44b084fce48cfcc89d38d1065ba43a2a0d76"
+      },
+      "meta_sha256": "8c03b3b422e635b8f9f1e09f660d4cc20e39695a8c2d82a9f945cae26dc86bd7"
+    },
+    {
+      "sample_id": "sample_0007",
+      "state": "completed",
+      "seed": 20260917,
+      "files": {
+        "sample_0007/input/btr_A_hull.png": "433be0b173c42ee7f411cbef69c2b9d105e6dae4a3122e7ed7f571d3f1beb549",
+        "sample_0007/input/btr_A_tow.png": "9f553306ee2febe7e9cb34114d0cfc114068b4856092664a71d0e12f201af71c",
+        "sample_0007/input/platform.json": "4b2b45d448d04e78a81669d8fa52496ee87c3254a10ad3272d758005189d6ccb",
+        "sample_0007/truth/btr_A_hull.txt": "91dfec3752982397e0811e2c9336b5324311ee700bcabbafb4f9c03e2e9b700e",
+        "sample_0007/truth/btr_A_tow.txt": "4fd8d328d5ede1fd446b075de051013568598c488707fb7605467efc44f9bc17",
+        "sample_0007/truth/btr_A_track.png": "5a44ceafabffbf0df7b8d23c55eb59da554ca33bcb425df2114ff06e8dcf4fbc",
+        "sample_0007/truth/btr_A_track.txt": "63e65c5633da603c1fa1a79774853cd8809cb2173783eb7aa7f3e4681c08cfe3",
+        "sample_0007/truth/btr_A_truth.jsonl": "3563669c738994000e38b8cc270618da84eb787aa7ceb39a5d0e162018904c46",
+        "sample_0007/semantic.json": "f6af547d74ad86b85a74174956ab1abc79ab48e8abe4548aaa754c9bb0c8b72d"
+      },
+      "meta_sha256": "68fe48ced86b75e7301a5dd461b75bdd042a41d3263ce0493dd265c5c4e988b5"
+    },
+    {
+      "sample_id": "sample_0008",
+      "state": "completed",
+      "seed": 20260918,
+      "files": {
+        "sample_0008/input/btr_A_hull.png": "8784e8f91a134571af061535a43a3e9ddccbd8ad63eff6c201ded5bb64cc76e1",
+        "sample_0008/input/btr_A_tow.png": "15bf6e7600173ca8e6085b350a41310a71756604381d4030def998588cb2954d",
+        "sample_0008/input/platform.json": "a4d1af84520c5be6df899d30866c04edb88762c3f46ed53b2d7beee0398f819f",
+        "sample_0008/truth/btr_A_hull.txt": "0b2f1fd662a9aa57995739ae72252f863b11547659425a26173a3cdf5d64d453",
+        "sample_0008/truth/btr_A_tow.txt": "2b711e345ae59ffede29ba441c90f8123d835414a2a98b847afc5f7141404e6c",
+        "sample_0008/truth/btr_A_track.png": "8dfc8e149e190cd64505d7aa990464af5690337af12e0abe89c3f3850cb61d01",
+        "sample_0008/truth/btr_A_track.txt": "8fdbca78341fcadd404f05eb7f7a6ac26fa3ea6fe14a55e77a44a1e78c33a41c",
+        "sample_0008/truth/btr_A_truth.jsonl": "c2976544f1f4eae7658d0a85500adacaf580fadaff675a971c62c5ef6265a2cd",
+        "sample_0008/semantic.json": "330e8cdc603341ff870c5acadbdb91ac6f98f444b00c1ac4629311d21faa6aa4"
+      },
+      "meta_sha256": "4a1cc8a58fab7d6a1022f206ded005e6257905349ca12f5d2baac8d5221e334e"
+    },
+    {
+      "sample_id": "sample_0009",
+      "state": "completed",
+      "seed": 20260919,
+      "files": {
+        "sample_0009/input/btr_A_hull.png": "0bbb52023499efbfbaa2a0d0b4bbe3bf2ab56bb46727a192b221fa78dc6f3032",
+        "sample_0009/input/btr_A_tow.png": "b9bf99be02dac3c6fca39797a77cd340b5af19e9082024c28501956829d597af",
+        "sample_0009/input/platform.json": "e19f1a17fb91f9088734afa39c1ee909b28afe4d9b1c113c97276199dfcbaf15",
+        "sample_0009/truth/btr_A_hull.txt": "bcc705dca17ca3d86085edeb10ad551ff0476b45f9e0e6ee4b31db862a6fac8b",
+        "sample_0009/truth/btr_A_tow.txt": "c664ad6843fe1350a2bf1073c75d0e33a3b5bc7afd7141d7eca02e65e9f98135",
+        "sample_0009/truth/btr_A_track.png": "27cc99389b264bf43cf9773cfc3e4ec7396fdf7fa44bf185ac92ddcee0b4435b",
+        "sample_0009/truth/btr_A_track.txt": "6686992bbb645ce0523a9a3ec46caad31b6cc5f28d9812cbcd54377fb9ea6126",
+        "sample_0009/truth/btr_A_truth.jsonl": "c08baa20f0e46c029c472520bcc2ad01ecdc62ea2c505a280b95832545e34ec1",
+        "sample_0009/semantic.json": "338c9a6c1861af6ffeecccc10806ad8f9a4fe862be0a53b912d4184b53cab30e"
+      },
+      "meta_sha256": "26faa9d04efbec9383aebe1fea387bf57d46aaca76cce13b7f466a1ccef12ffa"
+    },
+    {
+      "sample_id": "sample_0010",
+      "state": "completed",
+      "seed": 20260920,
+      "files": {
+        "sample_0010/input/btr_A_hull.png": "07a493d9d0b42ed4de85992f2094643a88bb8b558076e22cc72e594246321c32",
+        "sample_0010/input/btr_A_tow.png": "0c57d5aff983c569d9f9796f608aafbb7aecc701ebc2b1f6d03a4e761a8213ad",
+        "sample_0010/input/platform.json": "05cb16fc40e359513b48d76c4b57653bd0b2632b459cc7fdeb001deffcb3c77f",
+        "sample_0010/truth/btr_A_hull.txt": "6b1489806e3f76863fbb85b4508c99788f15bc89e6d5e98f8981cc97b26804dd",
+        "sample_0010/truth/btr_A_tow.txt": "0b7e13acf55da1429e2644584bca2041fef337043193dd09ec848b100e2e8975",
+        "sample_0010/truth/btr_A_track.png": "4160120126fc7c713cc07ed86f096fd833bdee550ed0d7122adb455ffe4b49a6",
+        "sample_0010/truth/btr_A_track.txt": "4997b330cccce1a1a280d60ab80b1d3d2fa4ac5c51a9e7dc5c485eedff9ace70",
+        "sample_0010/truth/btr_A_truth.jsonl": "fa3e9ae85e1b71f06561d0515edc7e1035e3212cfac901b5ec12c79d7c882b2d",
+        "sample_0010/semantic.json": "d210f119648e9847318705aad80cf83b4845e7507307f57b7fbc71e97993c168"
+      },
+      "meta_sha256": "4c81e70c54c278f983b1d180bcdeeb991a2f2779a69b51def329e0b78a6400d6"
+    }
+  ],
+  "out_dir": "C:\\Users\\LENOVO\\Desktop\\btr_gens\\btr_gens\\btr_out\\batch_20261113_151936_b4067d"
+}

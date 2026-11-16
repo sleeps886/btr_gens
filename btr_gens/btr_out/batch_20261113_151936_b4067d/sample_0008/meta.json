@@ -1,0 +1,147 @@
+{
+  "params": {
+    "T_MAX": 600,
+    "DT": 1,
+    "B_MIN": 0,
+    "B_MAX": 180,
+    "DB_STEP": 0.25,
+    "NOISE_STD": 0.033425046084616994,
+    "CLUTTER_LAM": 0.013325744412501925,
+    "DB_RANGE": [
+      -5,
+      16
+    ],
+    "SEED": 20260918,
+    "EARTH_R": 6371000,
+    "REF_LAT": 30,
+    "REF_LON": 122,
+    "OUT_DIR": "C:\\Users\\LENOVO\\Desktop\\btr_gens\\btr_gens\\btr_out\\batch_20261113_151936_b4067d\\sample_0008",
+    "platforms": [
+      {
+        "name": "A",
+        "start_ll": [
+          30.0623,
+          122.0415
+        ],
+        "heading_deg": 31.060631479725387,
+        "speed_kn": 0.0,
+        "hull_m": [
+          0,
+          0
+        ],
+        "tow_m": [
+          -150,
+          0
+        ],
+        "color": "#ffd400",
+        "bounds": {
+          "lat": [
+            29.85,
+            30.2
+          ],
+          "lon": [
+            121.75,
+            122.35
+          ]
+        }
+      }
+    ],
+    "targets": [
+      {
+        "name": "T1",
+        "start": [
+          30.034970212996562,
+          122.12498241912733
+        ],
+        "speed_kn": 18.004279467149352,
+        "amp": 0.3374201346100039,
+        "sigma_hull": 3.822495804616772,
+        "sigma_tow": 1.7456858013690306,
+        "t_on": 0,
+        "t_off": 600,
+        "color": "#ff9d00",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.034970212996562,
+            122.06398241912734
+          ]
+        ]
+      },
+      {
+        "name": "T2",
+        "start": [
+          30.0225,
+          121.969
+        ],
+        "speed_kn": 23,
+        "amp": 0.19423113125728875,
+        "sigma_hull": 4.1077832225216735,
+        "sigma_tow": 1.419914005152624,
+        "t_on": 60,
+        "t_off": 560,
+        "color": "#ff00cc",
+        "path_type": "curve",
+        "curve_func": "(30.0225 + 0.0045*np.sin(2*np.pi*t/400.0), 121.9690 + 0.0001227*t)"
+      },
+      {
+        "name": "T3",
+        "start": [
+          30.00556180129058,
+          121.97736840785964
+        ],
+        "speed_kn": 26.235297618068,
+        "amp": 0.16475578865616136,
+        "sigma_hull": 5.540952016187881,
+        "sigma_tow": 1.9017966695494184,
+        "t_on": 150,
+        "t_off": 450,
+        "color": "#00ffff",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.00556180129058,
+            122.05736840785966
+          ]
+        ]
+      },
+      {
+        "name": "T4",
+        "start": [
+          30.062173183336874,
+          122.06213871080789
+        ],
+        "speed_kn": 9.334793736547937,
+        "amp": 0.0920595510168557,
+        "sigma_hull": 6.230562093607629,
+        "sigma_tow": 2.398131340842126,
+        "t_on": 100,
+        "t_off": 560,
+        "color": "#aaff00",
+        "path_type": "waypoints",
+        "waypoints": [
+          [
+            30.062173183336874,
+            122.00913871080789
+          ]
+        ]
+      }
+    ],
+    "SHOW_TRUTH_OVERLAY": false,
+    "EXPORT_TRUTH": true
+  },
+  "sample_id": "sample_0008",
+  "state": "completed",
+  "seed": 20260918,
+  "files": {
+    "sample_0008/input/btr_A_hull.png": "8784e8f91a134571af061535a43a3e9ddccbd8ad63eff6c201ded5bb64cc76e1",
+    "sample_0008/input/btr_A_tow.png": "15bf6e7600173ca8e6085b350a41310a71756604381d4030def998588cb2954d",
+    "sample_0008/input/platform.json": "a4d1af84520c5be6df899d30866c04edb88762c3f46ed53b2d7beee0398f819f",
+    "sample_0008/truth/btr_A_hull.txt": "0b2f1fd662a9aa57995739ae72252f863b11547659425a26173a3cdf5d64d453",
+    "sample_0008/truth/btr_A_tow.txt": "2b711e345ae59ffede29ba441c90f8123d835414a2a98b847afc5f7141404e6c",
+    "sample_0008/truth/btr_A_track.png": "8dfc8e149e190cd64505d7aa990464af5690337af12e0abe89c3f3850cb61d01",
+    "sample_0008/truth/btr_A_track.txt": "8fdbca78341fcadd404f05eb7f7a6ac26fa3ea6fe14a55e77a44a1e78c33a41c",
+    "sample_0008/truth/btr_A_truth.jsonl": "c2976544f1f4eae7658d0a85500adacaf580fadaff675a971c62c5ef6265a2cd",
+    "sample_0008/semantic.json": "330e8cdc603341ff870c5acadbdb91ac6f98f444b00c1ac4629311d21faa6aa4"
+  }
+}
