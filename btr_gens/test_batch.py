@@ -107,7 +107,10 @@ class BatchTests(unittest.TestCase):
                         with self.assertRaises(ValueError): validate(bad)
                         self.assertEqual(len(list((sample_dir/'input').glob('*.png'))),2)
                         self.assertEqual(len(list((sample_dir/'truth').glob('*.txt'))),3)
-                        self.assertNotIn('targets',json.loads((sample_dir/'input/platform.json').read_text()))
+                        metadata=json.loads((sample_dir/'input/platform.json').read_text())
+                        self.assertNotIn('targets',metadata)
+                        self.assertNotIn('DB_STEP',metadata)
+                        self.assertEqual(json.loads((sample_dir/'meta.json').read_text())['params']['DB_STEP'],2)
                         truth=[json.loads(line) for line in (sample_dir/'truth/btr_A_truth.jsonl').read_text().splitlines()]
                         self.assertEqual(len(truth),11)
                         self.assertEqual(truth[-1]['time_s'],10)

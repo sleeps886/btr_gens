@@ -19,6 +19,19 @@ def write_json(path, value):
     temporary.replace(path)
 
 
+def platform_metadata(p):
+    """Export known platform geometry and image axes, not simulation settings."""
+    geometry = {key: p.get(key, default) for key, default in [
+        ('T_MAX', 600), ('DT', 1), ('B_MIN', 0), ('B_MAX', 180),
+        ('REF_LAT', 30), ('REF_LON', 122), ('EARTH_R', 6371000)]}
+    geometry.update(platforms=p['platforms'],
+                    platform_motion_model='constant_heading_constant_speed',
+                    image_time_axis='bottom_to_top',
+                    bearing_convention='relative_heading_folded_0_180',
+                    left_right_ambiguous=True)
+    return geometry
+
+
 def validate_params(p):
     if not isinstance(p, dict):
         raise ValueError('参数必须为对象')
@@ -87,6 +100,9 @@ def validate_params(p):
 
 
 def sample_params(base, mode, seed, percent, index):
+    if mode == 'custom':
+        from btr_studio import make_sample
+        return make_sample(base, index)
     if mode == 'scenarios':
         from gen_train_ds import SCENARIOS, build_payload
         spec = SCENARIOS[index % len(SCENARIOS)]
@@ -131,19 +147,27 @@ class BatchManager:
         seed = request.get('seed', 20260911)
         percent = request.get('percent', 15)
         mode = request.get('mode', 'noise')
-        if type(count) is not int or not 1 <= count <= 1000:
-            raise ValueError('样本数须为1～1000的整数')
+        studio = None
+        if mode == 'custom':
+            from btr_studio import preview_config
+            plan = preview_config(request.get('studio'))
+            studio = plan['config']
+            count, seed = plan['total'], studio['seed']
+        limit = 10000 if mode == 'custom' else 1000
+        if type(count) is not int or not 1 <= count <= limit:
+            raise ValueError(f'样本数须为1～{limit}的整数')
         if type(seed) is not int or not 0 <= seed <= 2**31-1001:
             raise ValueError('随机种子须为0～2147482647的整数')
         if not isinstance(percent, (int,float)) or not math.isfinite(percent) or not 0 <= percent <= 50:
             raise ValueError('扰动百分比须为0～50')
-        if mode not in ('noise', 'perturb', 'scenarios'):
+        if mode not in ('noise', 'perturb', 'scenarios', 'custom'):
             raise ValueError('未知生成模式')
-        base = copy.deepcopy(request.get('params'))
-        if mode != 'scenarios':
+        base = studio if mode == 'custom' else copy.deepcopy(request.get('params'))
+        if mode not in ('scenarios', 'custom'):
             validate_params(base)
-        # Validate every derived payload before accepting a job.
-        for i in range(count):
+        # Legacy jobs preflight all samples. Studio validates config and a bounded preview;
+        # each derived sample is validated again in the worker before rendering.
+        for i in range(min(count, 12) if mode == 'custom' else count):
             validate_params(sample_params(base, mode, seed, percent, i))
         with self.lock:
             if any(j['state'] in ('queued','running','stopping') for j in self.jobs.values()):
@@ -152,6 +176,8 @@ class BatchManager:
             directory = self.root / job_id
             directory.mkdir(parents=True)
             config = dict(count=count, seed=seed, percent=percent, mode=mode, params=base)
+            if studio is not None:
+                config['studio'] = studio
             write_json(directory/'batch_config.json', config)
             job = dict(id=job_id, state='queued', total=count, completed=0,
                        failed=0, current=0, stop=False, samples=[], out_dir=str(directory))
@@ -203,11 +229,14 @@ class BatchManager:
                 input_dir, truth_dir = sample_dir/'input', sample_dir/'truth'
                 input_dir.mkdir(parents=True)
                 truth_dir.mkdir()
-                p = sample_params(config['params'], config['mode'], config['seed'], config['percent'], i)
-                p['OUT_DIR'] = str(sample_dir)
-                entry = dict(sample_id=sample_dir.name, state='failed', seed=p['SEED'])
-                write_json(sample_dir/'meta.json', dict(params=p, state='running'))
+                entry = dict(sample_id=sample_dir.name, state='failed', seed=config['seed']+i)
+                p = {}
                 try:
+                    p = sample_params(config['params'], config['mode'], config['seed'], config['percent'], i)
+                    p['OUT_DIR'] = str(sample_dir)
+                    if '_studio' in p:
+                        entry.update(combination=p['_studio']['combination'], label=p['_studio']['label'])
+                    write_json(sample_dir/'meta.json', dict(params=p, state='running'))
                     with self.run_lock:
                         if job['stop']:
                             write_json(sample_dir/'meta.json', dict(params=p, state='cancelled'))
@@ -221,17 +250,8 @@ class BatchManager:
                                 src.replace(dest/src.name)
                     for src in sample_dir.glob('*_truth.jsonl'):
                         src.replace(truth_dir/src.name)
-                    # Only known platform geometry and observation axes enter input.
-                    geometry = {key:p.get(key, default) for key,default in [
-                        ('T_MAX',600),('DT',1),('B_MIN',0),('B_MAX',180),
-                        ('REF_LAT',30),('REF_LON',122),('EARTH_R',6371000)]}
-                    geometry['platforms'] = p['platforms']
-                    geometry['platform_motion_model'] = 'constant_heading_constant_speed'
-                    geometry['image_time_axis'] = 'bottom_to_top'
-                    geometry['bearing_convention'] = 'relative_heading_folded_0_180'
-                    geometry['left_right_ambiguous'] = True
-                    write_json(input_dir/'platform.json', geometry)
-                    from btr_semantic import export_semantic
+                    write_json(input_dir/'platform.json', platform_metadata(p))
+                    from btr_semantic_v1 import export_semantic
                     export_semantic(sample_dir, p)
                     files = {}
                     for f in sorted(sample_dir.rglob('*')):

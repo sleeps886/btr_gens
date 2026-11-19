@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BTR · 自动随机生成</title>
+<link rel="stylesheet" href="/studio.css"><link rel="stylesheet" href="/quick.css"><script src="/quick.js" defer></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/studio"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M2 16h5l3-9 5 17 5-13 3 5h5" fill="none" stroke="currentColor" stroke-width="2"/></svg><b>BTR<span> / 样本工作台</span></b></a><a class="muted small" href="/">返回单次仿真 ↗</a></header>
+<main class="quick-main">
+<nav class="mode-tabs" aria-label="样本生成方式"><a href="/studio" aria-current="page">自动随机</a><a href="/studio/advanced">自定义配置</a></nav>
+<div class="intro quick-intro"><div><p class="eyebrow">自动参数 / 按量生成</p><h1>设定数量，随机生成。</h1><p class="lead">设定样本数量、平台数量和每个样本的目标数量，其余参数自动随机，沿用原 BTR 仿真算法。</p></div></div>
+<div id="quickNotice" class="notice" role="status" aria-live="polite" hidden></div>
+<section class="panel quick-generator" aria-label="自动生成样本">
+<form id="quickForm">
+  <div class="quick-input-row">
+    <div class="quick-field"><label for="quickCount">目标样本数量</label><div class="quantity"><input id="quickCount" type="number" value="10" min="1" max="10000" step="1" required inputmode="numeric" aria-describedby="countHint"><span aria-hidden="true">个样本</span></div></div>
+    <div class="quick-field"><label for="quickPlatformCount">平台数量</label><div class="quantity"><input id="quickPlatformCount" type="number" value="1" min="1" max="8" step="1" required inputmode="numeric" aria-describedby="countHint"><span aria-hidden="true">个平台 / 样本</span></div></div>
+    <div class="quick-field"><label for="quickTargetCount">目标数量（每个样本）</label><div class="quantity"><input id="quickTargetCount" type="number" value="2" min="1" max="12" step="1" required inputmode="numeric" aria-describedby="countHint"><span aria-hidden="true">个目标 / 样本</span></div></div>
+    <button id="quickStart" type="submit" class="primary" disabled><span id="quickStartText">正在连接…</span><span aria-hidden="true">→</span></button>
+  </div>
+  <p class="helper" id="countHint">样本数 1～10,000、平台数 1～8、目标数 1～12。同一批每个样本使用设定的平台数和目标数；多个平台共同观察这组目标。</p>
+</form>
+<div class="automatic-flow"><span><i>01</i> 自动随机参数</span><span aria-hidden="true">→</span><span><i>02</i> 原算法生成</span><span aria-hidden="true">→</span><span><i>03</i> 按成功数量交付</span></div>
+<p class="small muted">生成失败会换一组参数补生成，不占目标名额。每批独立保存，实际参数与随机种子随样本保留。</p>
+</section>
+<section class="panel quick-task" id="quickTask" aria-label="生成结果"><div class="section-head"><h2>生成进度与结果</h2><div class="task-controls"><span id="quickBadge" class="badge" role="status">尚未开始</span><button id="quickStop" class="quiet" type="button" disabled>停止后续生成</button></div></div><div id="quickEmpty" class="quick-empty"><span class="empty-mark" aria-hidden="true">＋</span><div><h3>设置数量后，点击开始。</h3><p>完成后显示保存目录、图像预览和结果清单。刷新页面后可继续查看。</p></div></div><div id="quickResult" hidden><div class="quick-metrics"><div><span>成功样本</span><strong id="quickCompleted">0</strong></div><div><span>计划样本数</span><strong id="quickTotal">0</strong></div><div><span id="quickFailureLabel">失败尝试</span><strong id="quickFailed">0</strong></div><span id="quickPercent" class="progress-percent">0%</span></div><progress id="quickProgress" max="100" value="0" aria-label="成功样本进度"></progress><p id="quickStage" class="helper" aria-live="polite"></p><p id="quickPath" class="output-path"></p><div id="quickDownloads" class="downloads"></div><div id="quickGallery" class="quick-previews"></div><details><summary>查看实际参数与样本记录</summary><p id="quickSeed" class="helper"></p><div class="table-scroll"><table><thead><tr><th>样本（点击查看语义 JSON）</th><th>实际随机条件</th><th>结果</th></tr></thead><tbody id="quickRows"></tbody></table></div><p class="helper">页面显示最近 30 条，完整记录保存在任务清单。输入图片与轨迹真值分开存储。</p></details></div></section>
+<details class="auto-details"><summary>自动生成的参数范围</summary><p>平台数量和目标数量由输入决定；随机选择静止 / 移动、近 / 中 / 远初始距离、直线 / 折线 / 曲线和不同噪声。各样本的具体位置、航向、航速、强度和可见时间分别采样。</p><p>每次仿真固定 600 秒、时间步长 1 秒、方位步长 0.25°。距离档按初始位置相对平台 A 定义。需要指定其他参数范围时，切换到“自定义配置”。</p><p>连续失败 5 次或补生成额度用尽时，任务显示未达标及实际原因，不会将不足数量标成完成。停止操作保留已完成结果，不继续补齐。</p></details>
+<footer><span>BTR / 自动随机生成</span><span>原仿真算法不变 · 两种配置方式均保留</span></footer>
+</main>
+</body></html>

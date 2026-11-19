@@ -1,0 +1,26 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const elements=new Map();
+const el=id=>{if(!elements.has(id))elements.set(id,{textContent:'',className:'',hidden:false,value:'',disabled:false});return elements.get(id);};
+const context=vm.createContext({document:{getElementById:el},setTimeout,clearTimeout,AbortSignal,console});
+let source=fs.readFileSync('btr_gens/btr_studio.js','utf8').replace(/\ninit\(\);\s*$/,'');
+vm.runInContext(source,context);
+(async()=>{
+ let resolvePreview;
+ context.pending=new Promise(r=>resolvePreview=r);
+ context.fakeEvent={target:{value:'file',files:[{size:100,text:async()=>JSON.stringify({seed:2})}]}};
+ vm.runInContext(`updateControls=()=>{}; readConfig=()=>({seed:1}); storageSet=()=>{}; applyConfig=c=>{globalThis.displayedSeed=c.seed}; showPlan=p=>{currentPlan=p}; request=async(path,c)=>c.seed===1?await pending:{config:{seed:2}};`,context);
+ const old=vm.runInContext('preview()',context);
+ await vm.runInContext('importConfig(fakeEvent)',context);
+ resolvePreview({config:{seed:1}});
+ await old;
+ assert.equal(context.displayedSeed,2);
+ assert.equal(vm.runInContext('currentPlan.config.seed',context),2,'stale preview must not replace imported configuration');
+ const nodes=new Map();
+ const dom=id=>{if(!nodes.has(id))nodes.set(id,{value:'',textContent:'',dataset:{},style:{},replaceChildren(){},append(){}});return nodes.get(id);};
+ const c2=vm.createContext({document:{getElementById:dom,createElement:()=>({style:{},append(){}}),createTextNode:t=>({textContent:t})},setTimeout,clearTimeout,AbortSignal,localStorage:{setItem(){}}});
+ vm.runInContext(source,c2);
+ vm.runInContext('showJob({id:"test",mode:"auto",state:"completed",completed:3,failed:2,total:3,samples:[],out_dir:"out"})',c2);
+ assert.equal(dom('taskProgress').value,100);
+ assert.match(dom('taskStage').textContent,/已成功 3 \/ 3/,'auto completion label must not include failed attempts');
+ console.log('PASS: imported form and generated plan stay consistent despite out-of-order preview responses');
+})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,0 +1,1856 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "SEM-multi_multi-20261020T152040",
+  "generated_at": "2026-10-20 15:20:40",
+  "summary_nl": "平台A静止于30.0623°N,122.0415°E，船头朝向30°，航速0.0kn；舷侧阵偏移(0,0)m、拖曳线列阵基线150m。观测600s内感知目标4个：T1、T2、T3、T4。 平台B静止于30.0509°N,121.9413°E，船头朝向315°，航速0.0kn；舷侧阵偏移(0,0)m、拖曳线列阵基线150m。观测600s内感知目标4个：T1、T2、T3、T4。 平台C静止于29.9377°N,122.0415°E，船头朝向150°，航速0.0kn；舷侧阵偏移(0,0)m、拖曳线列阵基线150m。观测600s内感知目标4个：T1、T2、T3、T4。场景级判断：平台静止，共感知唯一目标4个（数量等级：多；距离等级：混合），穿越平台：是。重点关注：T4。",
+  "source": {
+    "generator": "btr_multi_platform.py / btr_gui_server.py",
+    "run_dir": "D:\\Work\\海洋声纳探测推论\\btr_gens\\gen_datas\\multi_multi",
+    "seed": null,
+    "dataset": null,
+    "files": {
+      "A": {
+        "track": "btr_A_track.txt",
+        "hull": "btr_A_hull.txt",
+        "tow": "btr_A_tow.txt"
+      },
+      "B": {
+        "track": "btr_B_track.txt",
+        "hull": "btr_B_hull.txt",
+        "tow": "btr_B_tow.txt"
+      },
+      "C": {
+        "track": "btr_C_track.txt",
+        "hull": "btr_C_hull.txt",
+        "tow": "btr_C_tow.txt"
+      }
+    }
+  },
+  "sim_settings": {
+    "t_max_s": 600.0,
+    "dt_s": 1.0,
+    "bearing_range_deg": [
+      0.0,
+      180.0
+    ],
+    "bearing_step_deg": null,
+    "beam_cells": null,
+    "earth_radius_m": 6371000.0,
+    "projection_ref": {
+      "lat": 30.0,
+      "lon": 122.0
+    },
+    "noise_std": null,
+    "clutter_lam": null,
+    "db_range": null
+  },
+  "scenario_summary": {
+    "platform_state": "静止",
+    "distance_class": "混合",
+    "target_count_class": "多",
+    "target_total": 4,
+    "crossing": "是",
+    "crossing_count": 1,
+    "notes": [
+      "距离等级/计数口径与微调模型六项字段对齐；CPA 为目标相对各平台阵元的最近距离",
+      "场景级距离等级取唯一目标首见平台的判定值集合"
+    ]
+  },
+  "platforms": [
+    {
+      "platform_id": "A",
+      "self": {
+        "position_start": {
+          "lat": 30.0623,
+          "lon": 122.0415
+        },
+        "heading_deg": 30.0,
+        "speed_kn": 0.0,
+        "speed_ms": 0.0,
+        "motion_state": "静止",
+        "array_hull": {
+          "type": "舷侧阵（舰壳/弦测阵）",
+          "mount": "舰体中心",
+          "offset_m": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "beam_sigma_deg": [
+            3.5,
+            6.0
+          ]
+        },
+        "array_tow": {
+          "type": "拖曳线列阵",
+          "mount": "舰艉正后方，随船头航向旋转",
+          "offset_m": {
+            "x": -150.0,
+            "y": 0.0
+          },
+          "baseline_m": 150.0,
+          "beam_sigma_deg": [
+            1.4,
+            2.4
+          ]
+        },
+        "position_end": {
+          "lat": 30.0623,
+          "lon": 122.0415
+        },
+        "bounds": {
+          "lat": [
+            29.9,
+            30.15
+          ],
+          "lon": [
+            121.8,
+            122.3
+          ]
+        }
+      },
+      "observation": {
+        "t_range_s": [
+          0.0,
+          600.0
+        ],
+        "dt_s": 1.0,
+        "bearing_convention": "相对船头舷角，船首=0°，正横=90°，正尾=180°，折叠0~180°",
+        "left_right_ambiguous": true
+      },
+      "targets": [
+        {
+          "target_id": "T1",
+          "raw_label": "远/相向",
+          "kinematics": {
+            "speed_kn": 19.0,
+            "speed_ms": 9.77,
+            "position_start": {
+              "lat": 30.036,
+              "lon": 122.124
+            },
+            "position_end": {
+              "lat": 30.036,
+              "lon": 122.0631
+            },
+            "amp": 0.3,
+            "observation_window_s": [
+              0.0,
+              600.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 80.2,
+              "bearing_end_deg": 114.6,
+              "bearing_rate_deg_per_s": 0.0573,
+              "cpa": {
+                "range_km": 3.59,
+                "time_s": 600.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 79.2,
+              "bearing_end_deg": 112.4,
+              "bearing_rate_deg_per_s": 0.0553,
+              "cpa": {
+                "range_km": 3.53,
+                "time_s": 600.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "水面舰艇（商船/军舰典型航速段）",
+              "method": "航速19kn 落于 12~25kn 常见水面舰船航速段",
+              "rule_id": "RULE-TYPE-02",
+              "confidence": 0.5
+            },
+            "motion_model": {
+              "value": "CV",
+              "method": "方位变化平稳（|变化率|=0.057°/s），按匀速直线处理",
+              "rule_id": "RULE-MM-03",
+              "confidence": 0.7
+            },
+            "course_estimate_deg": {
+              "value": 270.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "最近通过",
+              "method": "CPA(t=600s) 位于观测窗内[0,600]s，先接近后远离",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.85
+            },
+            "distance_class": {
+              "value": "近",
+              "method": "最小 CPA=3.59km∈[1.2,5]km（与训练集“近距离”口径一致）",
+              "rule_id": "RULE-DIST-02",
+              "confidence": 0.8
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=3.53km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  110.2,
+                  309.8
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向30°±舷角80.2°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 20.0,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=20.0dB，窗=600s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "中",
+              "method": "评分=1.04 = 航速项0.76 + 接近项0.28；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [],
+          "evidence": {
+            "txt_refs": [
+              "btr_A_track.txt#L22",
+              "btr_A_hull.txt#L6",
+              "btr_A_tow.txt#L6"
+            ]
+          },
+          "summary_nl": "T1：航速19kn，舷角80.2°→114.6°，CPA 3.59km@600s；推论：水面舰艇，CV运动，航向约270.0°，最近通过，距离等级近，关注度中。"
+        },
+        {
+          "target_id": "T2",
+          "raw_label": "中/机动",
+          "kinematics": {
+            "speed_kn": 23.0,
+            "speed_ms": 11.83,
+            "position_start": {
+              "lat": 30.0225,
+              "lon": 121.969
+            },
+            "position_end": {
+              "lat": 30.0225,
+              "lon": 122.0426
+            },
+            "amp": 0.22,
+            "observation_window_s": [
+              60.0,
+              560.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 152.4,
+              "bearing_end_deg": 148.6,
+              "bearing_rate_deg_per_s": -0.0076,
+              "cpa": {
+                "range_km": 4.04,
+                "time_s": 520.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 151.9,
+              "bearing_end_deg": 147.6,
+              "bearing_rate_deg_per_s": -0.0086,
+              "cpa": {
+                "range_km": 3.9,
+                "time_s": 520.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "水面舰艇（商船/军舰典型航速段）",
+              "method": "航速23kn 落于 12~25kn 常见水面舰船航速段",
+              "rule_id": "RULE-TYPE-02",
+              "confidence": 0.5
+            },
+            "motion_model": {
+              "value": "CT",
+              "method": "生成端标签含“机动”，按协同转弯处理",
+              "rule_id": "RULE-MM-01",
+              "confidence": 0.85
+            },
+            "course_estimate_deg": {
+              "value": 90.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "最近通过",
+              "method": "CPA(t=520s) 位于观测窗内[60,560]s，先接近后远离",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.85
+            },
+            "distance_class": {
+              "value": "近",
+              "method": "最小 CPA=4.04km∈[1.2,5]km（与训练集“近距离”口径一致）",
+              "rule_id": "RULE-DIST-02",
+              "confidence": 0.8
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=3.90km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  182.4,
+                  237.6
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向30°±舷角152.4°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 17.3,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=17.3dB，窗=500s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "中",
+              "method": "评分=1.11 = 航速项0.92 + 接近项0.19；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [],
+          "evidence": {
+            "txt_refs": [
+              "btr_A_track.txt#L23",
+              "btr_A_hull.txt#L7",
+              "btr_A_tow.txt#L7"
+            ]
+          },
+          "summary_nl": "T2：航速23kn，舷角152.4°→148.6°，CPA 4.04km@520s；推论：水面舰艇，CT运动，航向约90.0°，最近通过，距离等级近，关注度中。"
+        },
+        {
+          "target_id": "T3",
+          "raw_label": "近/高速",
+          "kinematics": {
+            "speed_kn": 29.0,
+            "speed_ms": 14.92,
+            "position_start": {
+              "lat": 30.0045,
+              "lon": 121.978
+            },
+            "position_end": {
+              "lat": 30.0045,
+              "lon": 122.058
+            },
+            "amp": 0.18,
+            "observation_window_s": [
+              150.0,
+              450.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 166.4,
+              "bearing_end_deg": 136.1,
+              "bearing_rate_deg_per_s": -0.101,
+              "cpa": {
+                "range_km": 6.43,
+                "time_s": 410.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 166.2,
+              "bearing_end_deg": 135.2,
+              "bearing_rate_deg_per_s": -0.1033,
+              "cpa": {
+                "range_km": 6.3,
+                "time_s": 405.0
+              }
+            },
+            "parallax_t300": {
+              "at_s": 300,
+              "target_label": "近/高速",
+              "hull_bearing_deg": 164.3,
+              "tow_bearing_deg": 163.9,
+              "delta_deg": 0.4
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "高速水面目标（疑似军用快艇/突击艇）",
+              "method": "航速29kn≥25kn，超出常见商船巡航速度段",
+              "rule_id": "RULE-TYPE-01",
+              "confidence": 0.6
+            },
+            "motion_model": {
+              "value": "CA",
+              "method": "|方位变化率|=0.101°/s≥0.08，疑似加减速/转弯",
+              "rule_id": "RULE-MM-02",
+              "confidence": 0.55
+            },
+            "course_estimate_deg": {
+              "value": 90.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "最近通过",
+              "method": "CPA(t=410s) 位于观测窗内[150,450]s，先接近后远离",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.85
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "最小 CPA=6.43km∈(5,15]km",
+              "rule_id": "RULE-DIST-03",
+              "confidence": 0.75
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=6.30km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  196.4,
+                  223.6
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向30°±舷角166.4°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 15.6,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=15.6dB，窗=300s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "中",
+              "method": "评分=1.46 = 航速项1.16 + 接近项0.00 + 类型加成+0.3；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [],
+          "evidence": {
+            "txt_refs": [
+              "btr_A_track.txt#L24",
+              "btr_A_hull.txt#L8",
+              "btr_A_tow.txt#L8",
+              "btr_A_tow.txt#L12"
+            ]
+          },
+          "summary_nl": "T3：航速29kn，舷角166.4°→136.1°，CPA 6.43km@410s；推论：高速水面目标，CA运动，航向约90.0°，最近通过，距离等级中，关注度中。"
+        },
+        {
+          "target_id": "T4",
+          "raw_label": "远/弱",
+          "kinematics": {
+            "speed_kn": 10.0,
+            "speed_ms": 5.14,
+            "position_start": {
+              "lat": 30.063,
+              "lon": 122.062
+            },
+            "position_end": {
+              "lat": 30.063,
+              "lon": 122.0299
+            },
+            "amp": 0.1,
+            "observation_window_s": [
+              100.0,
+              560.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 57.7,
+              "bearing_end_deg": 116.0,
+              "bearing_rate_deg_per_s": 0.1267,
+              "cpa": {
+                "range_km": 0.08,
+                "time_s": 384.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 54.2,
+              "bearing_end_deg": 108.7,
+              "bearing_rate_deg_per_s": 0.1185,
+              "cpa": {
+                "range_km": 0.21,
+                "time_s": 398.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "低速目标（疑似潜艇潜航/小型船只，待深度信息佐证）；弱目标，小型/远距可能性增大",
+              "method": "航速10kn<12kn，仅凭航速无法区分水面/水下目标",
+              "rule_id": "RULE-TYPE-03",
+              "confidence": 0.4
+            },
+            "motion_model": {
+              "value": "CA",
+              "method": "|方位变化率|=0.127°/s≥0.08，疑似加减速/转弯",
+              "rule_id": "RULE-MM-02",
+              "confidence": 0.55
+            },
+            "course_estimate_deg": {
+              "value": 270.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "最近通过",
+              "method": "CPA(t=384s) 位于观测窗内[100,560]s，先接近后远离",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.85
+            },
+            "distance_class": {
+              "value": "极近",
+              "method": "最小 CPA=0.08km<1.2km",
+              "rule_id": "RULE-DIST-01",
+              "confidence": 0.85
+            },
+            "crossing": {
+              "value": true,
+              "method": "距平台最小 CPA=0.08km（hull阵）<0.5km，判定穿越/极近通过",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  87.7,
+                  332.3
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向30°±舷角57.7°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "深度缺测；低速目标若为潜艇潜航则深度>0，待佐证",
+              "rule_id": "RULE-DEPTH-02",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 10.5,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "C",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=10.5dB，窗=460s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "高",
+              "method": "评分=1.88 = 航速项0.40 + 接近项0.98 + 穿越加成+0.5；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [
+            "弱目标（amp=0.10），低信噪比下检测与分类置信度有限",
+            "目标穿越/极近通过平台，注意多目标关联与左右舷混淆"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "btr_A_track.txt#L25",
+              "btr_A_hull.txt#L9",
+              "btr_A_tow.txt#L9"
+            ]
+          },
+          "summary_nl": "T4：航速10kn，舷角57.7°→116.0°，CPA 0.08km@384s；推论：低速目标，CA运动，航向约270.0°，最近通过，距离等级极近，穿越平台，关注度高。"
+        }
+      ],
+      "cross_events": [
+        {
+          "target_id": "T4",
+          "time_s": 384.0,
+          "cpa_km": 0.08,
+          "array_name": "hull"
+        }
+      ],
+      "parallax_extra": [],
+      "warnings": [],
+      "summary_nl": "平台A静止于30.0623°N,122.0415°E，船头朝向30°，航速0.0kn；舷侧阵偏移(0,0)m、拖曳线列阵基线150m。观测600s内感知目标4个：T1、T2、T3、T4。"
+    },
+    {
+      "platform_id": "B",
+      "self": {
+        "position_start": {
+          "lat": 30.0509,
+          "lon": 121.9413
+        },
+        "heading_deg": 315.0,
+        "speed_kn": 0.0,
+        "speed_ms": 0.0,
+        "motion_state": "静止",
+        "array_hull": {
+          "type": "舷侧阵（舰壳/弦测阵）",
+          "mount": "舰体中心",
+          "offset_m": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "beam_sigma_deg": [
+            3.5,
+            6.0
+          ]
+        },
+        "array_tow": {
+          "type": "拖曳线列阵",
+          "mount": "舰艉正后方，随船头航向旋转",
+          "offset_m": {
+            "x": -150.0,
+            "y": 0.0
+          },
+          "baseline_m": 150.0,
+          "beam_sigma_deg": [
+            1.4,
+            2.4
+          ]
+        },
+        "position_end": {
+          "lat": 30.0509,
+          "lon": 121.9413
+        },
+        "bounds": {
+          "lat": [
+            29.9,
+            30.15
+          ],
+          "lon": [
+            121.8,
+            122.3
+          ]
+        }
+      },
+      "observation": {
+        "t_range_s": [
+          0.0,
+          600.0
+        ],
+        "dt_s": 1.0,
+        "bearing_convention": "相对船头舷角，船首=0°，正横=90°，正尾=180°，折叠0~180°",
+        "left_right_ambiguous": true
+      },
+      "targets": [
+        {
+          "target_id": "T1",
+          "raw_label": "远/相向",
+          "kinematics": {
+            "speed_kn": 19.0,
+            "speed_ms": 9.77,
+            "position_start": {
+              "lat": 30.036,
+              "lon": 122.124
+            },
+            "position_end": {
+              "lat": 30.036,
+              "lon": 122.0631
+            },
+            "amp": 0.3,
+            "observation_window_s": [
+              0.0,
+              600.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 140.3,
+              "bearing_end_deg": 143.0,
+              "bearing_rate_deg_per_s": 0.0045,
+              "cpa": {
+                "range_km": 11.84,
+                "time_s": 600.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 140.0,
+              "bearing_end_deg": 142.6,
+              "bearing_rate_deg_per_s": 0.0043,
+              "cpa": {
+                "range_km": 11.72,
+                "time_s": 600.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "水面舰艇（商船/军舰典型航速段）",
+              "method": "航速19kn 落于 12~25kn 常见水面舰船航速段",
+              "rule_id": "RULE-TYPE-02",
+              "confidence": 0.5
+            },
+            "motion_model": {
+              "value": "CV",
+              "method": "方位变化平稳（|变化率|=0.004°/s），按匀速直线处理",
+              "rule_id": "RULE-MM-03",
+              "confidence": 0.7
+            },
+            "course_estimate_deg": {
+              "value": 270.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "最近通过",
+              "method": "CPA(t=600s) 位于观测窗内[0,600]s，先接近后远离",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.85
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "最小 CPA=11.84km∈(5,15]km",
+              "rule_id": "RULE-DIST-03",
+              "confidence": 0.75
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=11.72km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  95.3,
+                  174.7
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向315°±舷角140.3°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 20.0,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=20.0dB，窗=600s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "低",
+              "method": "评分=0.76 = 航速项0.76 + 接近项0.00；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [],
+          "evidence": {
+            "txt_refs": [
+              "btr_B_track.txt#L22",
+              "btr_B_hull.txt#L6",
+              "btr_B_tow.txt#L6"
+            ]
+          },
+          "summary_nl": "T1：航速19kn，舷角140.3°→143.0°，CPA 11.84km@600s；推论：水面舰艇，CV运动，航向约270.0°，最近通过，距离等级中，关注度低。"
+        },
+        {
+          "target_id": "T2",
+          "raw_label": "中/机动",
+          "kinematics": {
+            "speed_kn": 23.0,
+            "speed_ms": 11.83,
+            "position_start": {
+              "lat": 30.0225,
+              "lon": 121.969
+            },
+            "position_end": {
+              "lat": 30.0225,
+              "lon": 122.0426
+            },
+            "amp": 0.22,
+            "observation_window_s": [
+              60.0,
+              560.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 175.2,
+              "bearing_end_deg": 152.9,
+              "bearing_rate_deg_per_s": -0.0446,
+              "cpa": {
+                "range_km": 4.13,
+                "time_s": 0.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 175.0,
+              "bearing_end_deg": 152.5,
+              "bearing_rate_deg_per_s": -0.045,
+              "cpa": {
+                "range_km": 3.98,
+                "time_s": 0.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "水面舰艇（商船/军舰典型航速段）",
+              "method": "航速23kn 落于 12~25kn 常见水面舰船航速段",
+              "rule_id": "RULE-TYPE-02",
+              "confidence": 0.5
+            },
+            "motion_model": {
+              "value": "CT",
+              "method": "生成端标签含“机动”，按协同转弯处理",
+              "rule_id": "RULE-MM-01",
+              "confidence": 0.85
+            },
+            "course_estimate_deg": {
+              "value": 90.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "远离中",
+              "method": "CPA(t=0s) 早于观测窗起点(t=60s)，目标正在远离",
+              "rule_id": "RULE-APP-03",
+              "confidence": 0.8
+            },
+            "distance_class": {
+              "value": "近",
+              "method": "最小 CPA=4.13km∈[1.2,5]km（与训练集“近距离”口径一致）",
+              "rule_id": "RULE-DIST-02",
+              "confidence": 0.8
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=3.98km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  130.2,
+                  139.8
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向315°±舷角175.2°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 17.3,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=17.3dB，窗=500s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "中",
+              "method": "评分=1.09 = 航速项0.92 + 接近项0.17；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [],
+          "evidence": {
+            "txt_refs": [
+              "btr_B_track.txt#L23",
+              "btr_B_hull.txt#L7",
+              "btr_B_tow.txt#L7"
+            ]
+          },
+          "summary_nl": "T2：航速23kn，舷角175.2°→152.9°，CPA 4.13km@0s；推论：水面舰艇，CT运动，航向约90.0°，远离中，距离等级近，关注度中。"
+        },
+        {
+          "target_id": "T3",
+          "raw_label": "近/高速",
+          "kinematics": {
+            "speed_kn": 29.0,
+            "speed_ms": 14.92,
+            "position_start": {
+              "lat": 30.0045,
+              "lon": 121.978
+            },
+            "position_end": {
+              "lat": 30.0045,
+              "lon": 122.058
+            },
+            "amp": 0.18,
+            "observation_window_s": [
+              150.0,
+              450.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 169.4,
+              "bearing_end_deg": 159.6,
+              "bearing_rate_deg_per_s": -0.0327,
+              "cpa": {
+                "range_km": 6.25,
+                "time_s": 0.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 169.2,
+              "bearing_end_deg": 159.4,
+              "bearing_rate_deg_per_s": -0.0327,
+              "cpa": {
+                "range_km": 6.11,
+                "time_s": 0.0
+              }
+            },
+            "parallax_t300": {
+              "at_s": 300,
+              "target_label": "近/高速",
+              "hull_bearing_deg": 167.8,
+              "tow_bearing_deg": 167.6,
+              "delta_deg": 0.2
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "高速水面目标（疑似军用快艇/突击艇）",
+              "method": "航速29kn≥25kn，超出常见商船巡航速度段",
+              "rule_id": "RULE-TYPE-01",
+              "confidence": 0.6
+            },
+            "motion_model": {
+              "value": "CV",
+              "method": "方位变化平稳（|变化率|=0.033°/s），按匀速直线处理",
+              "rule_id": "RULE-MM-03",
+              "confidence": 0.7
+            },
+            "course_estimate_deg": {
+              "value": 90.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "远离中",
+              "method": "CPA(t=0s) 早于观测窗起点(t=150s)，目标正在远离",
+              "rule_id": "RULE-APP-03",
+              "confidence": 0.8
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "最小 CPA=6.25km∈(5,15]km",
+              "rule_id": "RULE-DIST-03",
+              "confidence": 0.75
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=6.11km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  124.4,
+                  145.6
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向315°±舷角169.4°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 15.6,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=15.6dB，窗=300s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "中",
+              "method": "评分=1.46 = 航速项1.16 + 接近项0.00 + 类型加成+0.3；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [
+            "t=300s 双站视差 0.2°<0.35°，单历元视差定距发散，距离仅可作趋势参考"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "btr_B_track.txt#L24",
+              "btr_B_hull.txt#L8",
+              "btr_B_tow.txt#L8",
+              "btr_B_tow.txt#L12"
+            ]
+          },
+          "summary_nl": "T3：航速29kn，舷角169.4°→159.6°，CPA 6.25km@0s；推论：高速水面目标，CV运动，航向约90.0°，远离中，距离等级中，关注度中。"
+        },
+        {
+          "target_id": "T4",
+          "raw_label": "远/弱",
+          "kinematics": {
+            "speed_kn": 10.0,
+            "speed_ms": 5.14,
+            "position_start": {
+              "lat": 30.063,
+              "lon": 122.062
+            },
+            "position_end": {
+              "lat": 30.063,
+              "lon": 122.0299
+            },
+            "amp": 0.1,
+            "observation_window_s": [
+              100.0,
+              560.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 128.4,
+              "bearing_end_deg": 126.0,
+              "bearing_rate_deg_per_s": -0.0052,
+              "cpa": {
+                "range_km": 8.64,
+                "time_s": 600.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 127.8,
+              "bearing_end_deg": 125.2,
+              "bearing_rate_deg_per_s": -0.0057,
+              "cpa": {
+                "range_km": 8.55,
+                "time_s": 600.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "低速目标（疑似潜艇潜航/小型船只，待深度信息佐证）；弱目标，小型/远距可能性增大",
+              "method": "航速10kn<12kn，仅凭航速无法区分水面/水下目标",
+              "rule_id": "RULE-TYPE-03",
+              "confidence": 0.4
+            },
+            "motion_model": {
+              "value": "CV",
+              "method": "方位变化平稳（|变化率|=0.005°/s），按匀速直线处理",
+              "rule_id": "RULE-MM-03",
+              "confidence": 0.7
+            },
+            "course_estimate_deg": {
+              "value": 270.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "接近中",
+              "method": "CPA(t=600s) 晚于观测窗结束(t=560s)，目标正在接近",
+              "rule_id": "RULE-APP-02",
+              "confidence": 0.8
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "最小 CPA=8.64km∈(5,15]km",
+              "rule_id": "RULE-DIST-03",
+              "confidence": 0.75
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=8.55km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  83.4,
+                  186.6
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向315°±舷角128.4°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "深度缺测；低速目标若为潜艇潜航则深度>0，待佐证",
+              "rule_id": "RULE-DEPTH-02",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 10.5,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "C",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=10.5dB，窗=460s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "低",
+              "method": "评分=0.40 = 航速项0.40 + 接近项0.00；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [
+            "弱目标（amp=0.10），低信噪比下检测与分类置信度有限"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "btr_B_track.txt#L25",
+              "btr_B_hull.txt#L9",
+              "btr_B_tow.txt#L9"
+            ]
+          },
+          "summary_nl": "T4：航速10kn，舷角128.4°→126.0°，CPA 8.64km@600s；推论：低速目标，CV运动，航向约270.0°，接近中，距离等级中，关注度低。"
+        }
+      ],
+      "cross_events": [],
+      "parallax_extra": [],
+      "warnings": [],
+      "summary_nl": "平台B静止于30.0509°N,121.9413°E，船头朝向315°，航速0.0kn；舷侧阵偏移(0,0)m、拖曳线列阵基线150m。观测600s内感知目标4个：T1、T2、T3、T4。"
+    },
+    {
+      "platform_id": "C",
+      "self": {
+        "position_start": {
+          "lat": 29.9377,
+          "lon": 122.0415
+        },
+        "heading_deg": 150.0,
+        "speed_kn": 0.0,
+        "speed_ms": 0.0,
+        "motion_state": "静止",
+        "array_hull": {
+          "type": "舷侧阵（舰壳/弦测阵）",
+          "mount": "舰体中心",
+          "offset_m": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "beam_sigma_deg": [
+            3.5,
+            6.0
+          ]
+        },
+        "array_tow": {
+          "type": "拖曳线列阵",
+          "mount": "舰艉正后方，随船头航向旋转",
+          "offset_m": {
+            "x": -150.0,
+            "y": 0.0
+          },
+          "baseline_m": 150.0,
+          "beam_sigma_deg": [
+            1.4,
+            2.4
+          ]
+        },
+        "position_end": {
+          "lat": 29.9377,
+          "lon": 122.0415
+        },
+        "bounds": {
+          "lat": [
+            29.9,
+            30.15
+          ],
+          "lon": [
+            121.8,
+            122.3
+          ]
+        }
+      },
+      "observation": {
+        "t_range_s": [
+          0.0,
+          600.0
+        ],
+        "dt_s": 1.0,
+        "bearing_convention": "相对船头舷角，船首=0°，正横=90°，正尾=180°，折叠0~180°",
+        "left_right_ambiguous": true
+      },
+      "targets": [
+        {
+          "target_id": "T1",
+          "raw_label": "远/相向",
+          "kinematics": {
+            "speed_kn": 19.0,
+            "speed_ms": 9.77,
+            "position_start": {
+              "lat": 30.036,
+              "lon": 122.124
+            },
+            "position_end": {
+              "lat": 30.036,
+              "lon": 122.0631
+            },
+            "amp": 0.3,
+            "observation_window_s": [
+              0.0,
+              600.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 114.0,
+              "bearing_end_deg": 139.2,
+              "bearing_rate_deg_per_s": 0.042,
+              "cpa": {
+                "range_km": 11.13,
+                "time_s": 600.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 113.4,
+              "bearing_end_deg": 138.7,
+              "bearing_rate_deg_per_s": 0.0422,
+              "cpa": {
+                "range_km": 11.01,
+                "time_s": 600.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "水面舰艇（商船/军舰典型航速段）",
+              "method": "航速19kn 落于 12~25kn 常见水面舰船航速段",
+              "rule_id": "RULE-TYPE-02",
+              "confidence": 0.5
+            },
+            "motion_model": {
+              "value": "CV",
+              "method": "方位变化平稳（|变化率|=0.042°/s），按匀速直线处理",
+              "rule_id": "RULE-MM-03",
+              "confidence": 0.7
+            },
+            "course_estimate_deg": {
+              "value": 270.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "最近通过",
+              "method": "CPA(t=600s) 位于观测窗内[0,600]s，先接近后远离",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.85
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "最小 CPA=11.13km∈(5,15]km",
+              "rule_id": "RULE-DIST-03",
+              "confidence": 0.75
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=11.01km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  264.0,
+                  36.0
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向150°±舷角114.0°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 20.0,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=20.0dB，窗=600s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "低",
+              "method": "评分=0.76 = 航速项0.76 + 接近项0.00；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [],
+          "evidence": {
+            "txt_refs": [
+              "btr_C_track.txt#L22",
+              "btr_C_hull.txt#L6",
+              "btr_C_tow.txt#L6"
+            ]
+          },
+          "summary_nl": "T1：航速19kn，舷角114.0°→139.2°，CPA 11.13km@600s；推论：水面舰艇，CV运动，航向约270.0°，最近通过，距离等级中，关注度低。"
+        },
+        {
+          "target_id": "T2",
+          "raw_label": "中/机动",
+          "kinematics": {
+            "speed_kn": 23.0,
+            "speed_ms": 11.83,
+            "position_start": {
+              "lat": 30.0225,
+              "lon": 121.969
+            },
+            "position_end": {
+              "lat": 30.0225,
+              "lon": 122.0426
+            },
+            "amp": 0.22,
+            "observation_window_s": [
+              60.0,
+              560.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 173.5,
+              "bearing_end_deg": 149.3,
+              "bearing_rate_deg_per_s": -0.0484,
+              "cpa": {
+                "range_km": 9.43,
+                "time_s": 600.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 173.4,
+              "bearing_end_deg": 148.9,
+              "bearing_rate_deg_per_s": -0.049,
+              "cpa": {
+                "range_km": 9.3,
+                "time_s": 600.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "水面舰艇（商船/军舰典型航速段）",
+              "method": "航速23kn 落于 12~25kn 常见水面舰船航速段",
+              "rule_id": "RULE-TYPE-02",
+              "confidence": 0.5
+            },
+            "motion_model": {
+              "value": "CT",
+              "method": "生成端标签含“机动”，按协同转弯处理",
+              "rule_id": "RULE-MM-01",
+              "confidence": 0.85
+            },
+            "course_estimate_deg": {
+              "value": 90.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "接近中",
+              "method": "CPA(t=600s) 晚于观测窗结束(t=560s)，目标正在接近",
+              "rule_id": "RULE-APP-02",
+              "confidence": 0.8
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "最小 CPA=9.43km∈(5,15]km",
+              "rule_id": "RULE-DIST-03",
+              "confidence": 0.75
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=9.30km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  323.5,
+                  336.5
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向150°±舷角173.5°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 17.3,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=17.3dB，窗=500s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "低",
+              "method": "评分=0.92 = 航速项0.92 + 接近项0.00；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [],
+          "evidence": {
+            "txt_refs": [
+              "btr_C_track.txt#L23",
+              "btr_C_hull.txt#L7",
+              "btr_C_tow.txt#L7"
+            ]
+          },
+          "summary_nl": "T2：航速23kn，舷角173.5°→149.3°，CPA 9.43km@600s；推论：水面舰艇，CT运动，航向约90.0°，接近中，距离等级中，关注度低。"
+        },
+        {
+          "target_id": "T3",
+          "raw_label": "近/高速",
+          "kinematics": {
+            "speed_kn": 29.0,
+            "speed_ms": 14.92,
+            "position_start": {
+              "lat": 30.0045,
+              "lon": 121.978
+            },
+            "position_end": {
+              "lat": 30.0045,
+              "lon": 122.058
+            },
+            "amp": 0.18,
+            "observation_window_s": [
+              150.0,
+              450.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 170.5,
+              "bearing_end_deg": 137.9,
+              "bearing_rate_deg_per_s": -0.1087,
+              "cpa": {
+                "range_km": 7.43,
+                "time_s": 410.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 170.4,
+              "bearing_end_deg": 137.2,
+              "bearing_rate_deg_per_s": -0.1107,
+              "cpa": {
+                "range_km": 7.3,
+                "time_s": 405.0
+              }
+            },
+            "parallax_t300": {
+              "at_s": 300,
+              "target_label": "近/高速",
+              "hull_bearing_deg": 162.4,
+              "tow_bearing_deg": 162.1,
+              "delta_deg": 0.3
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "高速水面目标（疑似军用快艇/突击艇）",
+              "method": "航速29kn≥25kn，超出常见商船巡航速度段",
+              "rule_id": "RULE-TYPE-01",
+              "confidence": 0.6
+            },
+            "motion_model": {
+              "value": "CA",
+              "method": "|方位变化率|=0.109°/s≥0.08，疑似加减速/转弯",
+              "rule_id": "RULE-MM-02",
+              "confidence": 0.55
+            },
+            "course_estimate_deg": {
+              "value": 90.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "最近通过",
+              "method": "CPA(t=410s) 位于观测窗内[150,450]s，先接近后远离",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.85
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "最小 CPA=7.43km∈(5,15]km",
+              "rule_id": "RULE-DIST-03",
+              "confidence": 0.75
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=7.30km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  320.5,
+                  339.5
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向150°±舷角170.5°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "生成端未提供深度真值；水面目标通常贴近海面≈0m，绝对深度需外部信息佐证",
+              "rule_id": "RULE-DEPTH-01",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 15.6,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "A",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=15.6dB，窗=300s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "中",
+              "method": "评分=1.46 = 航速项1.16 + 接近项0.00 + 类型加成+0.3；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [
+            "t=300s 双站视差 0.3°<0.35°，单历元视差定距发散，距离仅可作趋势参考"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "btr_C_track.txt#L24",
+              "btr_C_hull.txt#L8",
+              "btr_C_tow.txt#L8",
+              "btr_C_tow.txt#L12"
+            ]
+          },
+          "summary_nl": "T3：航速29kn，舷角170.5°→137.9°，CPA 7.43km@410s；推论：高速水面目标，CA运动，航向约90.0°，最近通过，距离等级中，关注度中。"
+        },
+        {
+          "target_id": "T4",
+          "raw_label": "远/弱",
+          "kinematics": {
+            "speed_kn": 10.0,
+            "speed_ms": 5.14,
+            "position_start": {
+              "lat": 30.063,
+              "lon": 122.062
+            },
+            "position_end": {
+              "lat": 30.063,
+              "lon": 122.0299
+            },
+            "amp": 0.1,
+            "observation_window_s": [
+              100.0,
+              560.0
+            ],
+            "waypoints_done_s": null
+          },
+          "observations": {
+            "hull": {
+              "array_name": "hull",
+              "bearing_start_deg": 141.9,
+              "bearing_end_deg": 154.6,
+              "bearing_rate_deg_per_s": 0.0276,
+              "cpa": {
+                "range_km": 13.93,
+                "time_s": 384.0
+              }
+            },
+            "tow": {
+              "array_name": "tow",
+              "bearing_start_deg": 141.6,
+              "bearing_end_deg": 154.3,
+              "bearing_rate_deg_per_s": 0.0276,
+              "cpa": {
+                "range_km": 13.8,
+                "time_s": 398.0
+              }
+            }
+          },
+          "inferences": {
+            "target_type": {
+              "value": "低速目标（疑似潜艇潜航/小型船只，待深度信息佐证）；弱目标，小型/远距可能性增大",
+              "method": "航速10kn<12kn，仅凭航速无法区分水面/水下目标",
+              "rule_id": "RULE-TYPE-03",
+              "confidence": 0.4
+            },
+            "motion_model": {
+              "value": "CV",
+              "method": "方位变化平稳（|变化率|=0.028°/s），按匀速直线处理",
+              "rule_id": "RULE-MM-03",
+              "confidence": 0.7
+            },
+            "course_estimate_deg": {
+              "value": 270.0,
+              "method": "起止位置反解地理航向（N=0°顺时针）",
+              "rule_id": "RULE-COURSE-01",
+              "confidence": 0.9
+            },
+            "approach_state": {
+              "value": "最近通过",
+              "method": "CPA(t=384s) 位于观测窗内[100,560]s，先接近后远离",
+              "rule_id": "RULE-APP-01",
+              "confidence": 0.85
+            },
+            "distance_class": {
+              "value": "中",
+              "method": "最小 CPA=13.93km∈(5,15]km",
+              "rule_id": "RULE-DIST-03",
+              "confidence": 0.75
+            },
+            "crossing": {
+              "value": false,
+              "method": "距平台最小 CPA=13.80km（tow阵）≥0.5km，判定未穿越",
+              "rule_id": "RULE-CROSS-01",
+              "confidence": 0.8
+            },
+            "side_ambiguity": {
+              "value": {
+                "mirror_candidates_deg": [
+                  291.9,
+                  8.1
+                ],
+                "note": "线列阵左右舷模糊：舷角折叠0~180°，绝对方位存在镜像双解，需本艇机动判别"
+              },
+              "method": "镜像双解=船头朝向150°±舷角141.9°",
+              "rule_id": "RULE-SIDE-01",
+              "confidence": 0.9
+            },
+            "depth_estimate_m": {
+              "value": null,
+              "method": "深度缺测；低速目标若为潜艇潜航则深度>0，待佐证",
+              "rule_id": "RULE-DEPTH-02",
+              "confidence": 0.3
+            },
+            "snr_est_db": {
+              "value": 10.5,
+              "method": "SNR≈20·log10(amp/noise_std)，noise_std 取默认假设值 0.030（txt 未记录）；未计杂波与条纹",
+              "rule_id": "RULE-SNR-01",
+              "confidence": 0.6
+            },
+            "observability_grade": {
+              "value": "C",
+              "method": "观测可信心级：D=SNR<8dB；C=SNR<11dB或窗<120s；B=SNR<14dB或窗<300s；其余A。分级思想移植自 btr_detect_agent（本例 SNR=10.5dB，窗=460s）",
+              "rule_id": "RULE-OBS-01",
+              "confidence": 0.7
+            },
+            "threat_level": {
+              "value": "低",
+              "method": "评分=0.40 = 航速项0.40 + 接近项0.00；≥1.7高 / ≥1.0中 / 其余低",
+              "rule_id": "RULE-THREAT-01",
+              "confidence": 0.6
+            }
+          },
+          "warnings": [
+            "弱目标（amp=0.10），低信噪比下检测与分类置信度有限"
+          ],
+          "evidence": {
+            "txt_refs": [
+              "btr_C_track.txt#L25",
+              "btr_C_hull.txt#L9",
+              "btr_C_tow.txt#L9"
+            ]
+          },
+          "summary_nl": "T4：航速10kn，舷角141.9°→154.6°，CPA 13.93km@384s；推论：低速目标，CV运动，航向约270.0°，最近通过，距离等级中，关注度低。"
+        }
+      ],
+      "cross_events": [],
+      "parallax_extra": [],
+      "warnings": [],
+      "summary_nl": "平台C静止于29.9377°N,122.0415°E，船头朝向150°，航速0.0kn；舷侧阵偏移(0,0)m、拖曳线列阵基线150m。观测600s内感知目标4个：T1、T2、T3、T4。"
+    }
+  ],
+  "environment": {
+    "sea_state": null,
+    "thermocline_depth_m": null,
+    "sound_speed_profile": null,
+    "seafloor_type": null,
+    "notes": [
+      "环境字段缺省，可由想定系统注入（海况/温跃层/声速剖面/海底类型）"
+    ]
+  },
+  "quality": {
+    "label_check": null,
+    "parsed_sources": [
+      "btr_A_track.txt",
+      "btr_A_hull.txt",
+      "btr_A_tow.txt",
+      "btr_B_track.txt",
+      "btr_B_hull.txt",
+      "btr_B_tow.txt",
+      "btr_C_track.txt",
+      "btr_C_hull.txt",
+      "btr_C_tow.txt"
+    ],
+    "warnings": [],
+    "schema_validation": {
+      "schema": "btr_semantic_structure_v1 (draft-07 子集校验)",
+      "ok": true
+    }
+  }
+}

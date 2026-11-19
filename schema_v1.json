@@ -1,0 +1,308 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "btr_semantic_structure_v1",
+  "title": "方位历程图语义结构数据 v1.0",
+  "description": "BTR 仿真/识别输出的统一语义结构：平台自身数据（位置/偏移/航速等）+ 目标观测信息（参照生成端 txt）+ 延展推论信息（类型/运动/态势/威胁关注度等，均带方法与置信度；仅含平台对目标的观测与评估，不描述目标侧对平台的感知）",
+  "type": "object",
+  "required": ["schema_version", "record_id", "generated_at", "source", "sim_settings", "scenario_summary", "platforms", "quality", "summary_nl"],
+  "properties": {
+    "schema_version": { "type": "string", "examples": ["1.0.0"] },
+    "record_id": { "type": "string", "description": "语义记录唯一编号" },
+    "generated_at": { "type": "string", "description": "生成时间" },
+    "summary_nl": { "type": "string", "description": "全记录自然语言摘要（军事语境，规则生成）" },
+    "source": {
+      "type": "object",
+      "required": ["run_dir", "files"],
+      "properties": {
+        "generator": { "type": "string" },
+        "run_dir": { "type": "string" },
+        "seed": { "type": ["integer", "null"] },
+        "dataset": {
+          "type": ["object", "null"],
+          "properties": {
+            "scenario_code": { "type": "string" },
+            "category": { "type": "string" },
+            "scenario": { "type": "string" },
+            "conditions": { "type": "object" },
+            "sample": { "type": ["integer", "null"] },
+            "label_check": { "type": ["string", "null"] }
+          }
+        },
+        "files": {
+          "type": "object",
+          "description": "按平台名索引的来源文件",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        }
+      }
+    },
+    "sim_settings": {
+      "type": "object",
+      "required": ["t_max_s", "dt_s"],
+      "properties": {
+        "t_max_s": { "type": "number" },
+        "dt_s": { "type": "number" },
+        "bearing_range_deg": { "type": "array", "items": { "type": "number" } },
+        "bearing_step_deg": { "type": ["number", "null"] },
+        "beam_cells": { "type": ["integer", "null"] },
+        "earth_radius_m": { "type": ["number", "null"] },
+        "projection_ref": {
+          "type": ["object", "null"],
+          "properties": { "lat": { "type": "number" }, "lon": { "type": "number" } }
+        },
+        "noise_std": { "type": ["number", "null"], "description": "高斯噪声标准差（线性强度）；txt 未记录时为 null，SNR 推论将注明假设值" },
+        "clutter_lam": { "type": ["number", "null"] },
+        "db_range": { "type": ["array", "null"], "items": { "type": "number" } }
+      }
+    },
+    "scenario_summary": {
+      "type": "object",
+      "description": "场景级六项字段（与微调模型输出口径对齐）",
+      "required": ["platform_state", "target_total"],
+      "properties": {
+        "platform_state": { "enum": ["静止", "移动"] },
+        "distance_class": { "enum": ["近", "中", "远", "混合", "未知"] },
+        "target_count_class": { "enum": ["少", "多", "未知"] },
+        "target_total": { "type": "integer" },
+        "crossing": { "enum": ["是", "否", "未知"] },
+        "crossing_count": { "type": ["integer", "null"] },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/platform" }
+    },
+    "environment": {
+      "type": "object",
+      "description": "海洋环境想定字段（可由想定注入，缺省 null）",
+      "properties": {
+        "sea_state": { "type": ["integer", "null"] },
+        "thermocline_depth_m": { "type": ["number", "null"] },
+        "sound_speed_profile": { "type": ["string", "null"] },
+        "seafloor_type": { "type": ["string", "null"] },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "properties": {
+        "label_check": { "type": ["string", "null"] },
+        "parsed_sources": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } },
+        "schema_validation": {
+          "type": "object",
+          "properties": {
+            "schema": { "type": "string" },
+            "ok": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "geo_pos": {
+      "type": "object",
+      "required": ["lat", "lon"],
+      "properties": {
+        "lat": { "type": "number", "description": "纬度（°N）" },
+        "lon": { "type": "number", "description": "经度（°E）" }
+      }
+    },
+    "inference": {
+      "type": "object",
+      "description": "推论信息信封：值 + 推理方法/规则 + 置信度",
+      "required": ["value", "method", "confidence"],
+      "properties": {
+        "value": { "description": "推论值（类型随字段而定）" },
+        "method": { "type": "string", "description": "推理依据说明" },
+        "rule_id": { "type": "string", "description": "规则库编号" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "array_hull": {
+      "type": "object",
+      "required": ["type", "offset_m"],
+      "properties": {
+        "type": { "type": "string", "description": "舷侧阵（舰壳/弦测阵）" },
+        "mount": { "type": "string" },
+        "offset_m": {
+          "type": "object",
+          "required": ["x", "y"],
+          "properties": {
+            "x": { "type": "number", "description": "船体坐标 x（m，>0 船头）" },
+            "y": { "type": "number", "description": "船体坐标 y（m，>0 左舷）" }
+          }
+        },
+        "beam_sigma_deg": { "type": "array", "items": { "type": "number" }, "description": "主瓣宽度范围（°）" }
+      }
+    },
+    "array_tow": {
+      "type": "object",
+      "required": ["type", "offset_m", "baseline_m"],
+      "properties": {
+        "type": { "type": "string", "description": "拖曳线列阵" },
+        "mount": { "type": "string" },
+        "offset_m": {
+          "type": "object",
+          "required": ["x", "y"],
+          "properties": {
+            "x": { "type": "number", "description": "船体坐标 x（m，<0 舰艉方向）" },
+            "y": { "type": "number" }
+          }
+        },
+        "baseline_m": { "type": "number", "description": "拖曳基线（m，随船头航向旋转）" },
+        "beam_sigma_deg": { "type": "array", "items": { "type": "number" } }
+      }
+    },
+    "cpa": {
+      "type": "object",
+      "required": ["range_km", "time_s"],
+      "properties": {
+        "range_km": { "type": "number" },
+        "time_s": { "type": "number" }
+      }
+    },
+    "array_obs": {
+      "type": "object",
+      "description": "单阵列观测（参照生成端 txt 逐字段）",
+      "required": ["array_name", "bearing_start_deg", "bearing_end_deg", "bearing_rate_deg_per_s", "cpa"],
+      "properties": {
+        "array_name": { "enum": ["hull", "tow"] },
+        "bearing_start_deg": { "type": "number", "description": "起始舷角（船首=0°，正横=90°，正尾=180°）" },
+        "bearing_end_deg": { "type": "number" },
+        "bearing_rate_deg_per_s": { "type": "number", "description": "平均方位变化率（°/s）" },
+        "cpa": { "$ref": "#/definitions/cpa" }
+      }
+    },
+    "parallax": {
+      "type": "object",
+      "description": "双站视差（t=300s）",
+      "required": ["hull_bearing_deg", "tow_bearing_deg", "delta_deg"],
+      "properties": {
+        "at_s": { "type": "number", "default": 300 },
+        "target_label": { "type": "string" },
+        "hull_bearing_deg": { "type": "number" },
+        "tow_bearing_deg": { "type": "number" },
+        "delta_deg": { "type": "number", "description": "双站视差 |Δ|（°）" }
+      }
+    },
+    "target": {
+      "type": "object",
+      "required": ["target_id", "kinematics", "observations", "inferences"],
+      "properties": {
+        "target_id": { "type": "string" },
+        "raw_label": { "type": ["string", "null"], "description": "生成端场景标签（如 远/相向）" },
+        "kinematics": {
+          "type": "object",
+          "required": ["speed_kn", "speed_ms", "position_start", "position_end", "amp", "observation_window_s"],
+          "properties": {
+            "speed_kn": { "type": "number" },
+            "speed_ms": { "type": "number" },
+            "position_start": { "$ref": "#/definitions/geo_pos" },
+            "position_end": { "$ref": "#/definitions/geo_pos" },
+            "amp": { "type": "number", "description": "目标强度（线性归一化幅度）" },
+            "observation_window_s": { "type": "array", "items": { "type": "number" }, "description": "观测窗 [t_on, t_off]" },
+            "waypoints_done_s": { "type": ["number", "null"], "description": "走完航点时刻；此后方位恒定、距离不可观" }
+          }
+        },
+        "observations": {
+          "type": "object",
+          "properties": {
+            "hull": { "$ref": "#/definitions/array_obs" },
+            "tow": { "$ref": "#/definitions/array_obs" },
+            "parallax_t300": { "$ref": "#/definitions/parallax" }
+          }
+        },
+        "inferences": {
+          "type": "object",
+          "description": "延展推论信息（每项均带方法与置信度）",
+          "properties": {
+            "target_type": { "$ref": "#/definitions/inference" },
+            "motion_model": { "$ref": "#/definitions/inference" },
+            "course_estimate_deg": { "$ref": "#/definitions/inference" },
+            "approach_state": { "$ref": "#/definitions/inference" },
+            "distance_class": { "$ref": "#/definitions/inference" },
+            "crossing": { "$ref": "#/definitions/inference" },
+            "side_ambiguity": { "$ref": "#/definitions/inference" },
+            "depth_estimate_m": { "$ref": "#/definitions/inference" },
+            "snr_est_db": { "$ref": "#/definitions/inference" },
+            "observability_grade": { "$ref": "#/definitions/inference" },
+            "threat_level": { "$ref": "#/definitions/inference", "description": "威胁关注度（高/中/低）——唯一需要目标意图/武器信息才能完全确证的推论，按约定保留并标注置信度" }
+          }
+        },
+        "warnings": { "type": "array", "items": { "type": "string" } },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "txt_refs": { "type": "array", "items": { "type": "string" }, "description": "来源 txt 行引用，如 btr_A_hull.txt#L6" }
+          }
+        },
+        "summary_nl": { "type": "string", "description": "目标级语义摘要" }
+      }
+    },
+    "platform": {
+      "type": "object",
+      "required": ["platform_id", "self", "observation", "targets"],
+      "properties": {
+        "platform_id": { "type": "string" },
+        "self": {
+          "type": "object",
+          "description": "平台自身数据",
+          "required": ["position_start", "heading_deg", "speed_kn", "speed_ms", "motion_state", "array_hull", "array_tow"],
+          "properties": {
+            "position_start": { "$ref": "#/definitions/geo_pos" },
+            "position_end": { "$ref": "#/definitions/geo_pos", "description": "观测窗结束时刻位置；无法推算时缺省" },
+            "heading_deg": { "type": "number", "description": "船头朝向（地理方位角，北=0°顺时针）" },
+            "speed_kn": { "type": "number" },
+            "speed_ms": { "type": "number" },
+            "motion_state": { "enum": ["静止", "移动"] },
+            "array_hull": { "$ref": "#/definitions/array_hull" },
+            "array_tow": { "$ref": "#/definitions/array_tow" },
+            "bounds": {
+              "type": ["object", "null"],
+              "properties": {
+                "lat": { "type": "array", "items": { "type": "number" } },
+                "lon": { "type": "array", "items": { "type": "number" } }
+              }
+            }
+          }
+        },
+        "observation": {
+          "type": "object",
+          "required": ["t_range_s", "dt_s", "bearing_convention", "left_right_ambiguous"],
+          "properties": {
+            "t_range_s": { "type": "array", "items": { "type": "number" } },
+            "dt_s": { "type": "number" },
+            "bearing_convention": { "type": "string" },
+            "left_right_ambiguous": { "type": "boolean", "description": "线列阵左右舷模糊（方位折叠 0~180°）" }
+          }
+        },
+        "targets": { "type": "array", "items": { "$ref": "#/definitions/target" } },
+        "cross_events": {
+          "type": "array",
+          "description": "穿越/极近通过事件清单",
+          "items": {
+            "type": "object",
+            "required": ["target_id", "cpa_km", "array_name"],
+            "properties": {
+              "target_id": { "type": "string" },
+              "time_s": { "type": ["number", "null"] },
+              "cpa_km": { "type": "number" },
+              "array_name": { "enum": ["hull", "tow"] }
+            }
+          }
+        },
+        "parallax_extra": {
+          "type": "array",
+          "description": "txt 视差段中标签与目标清单不匹配的记录（原样保留）",
+          "items": { "$ref": "#/definitions/parallax" }
+        },
+        "warnings": { "type": "array", "items": { "type": "string" } },
+        "summary_nl": { "type": "string", "description": "平台级语义摘要" }
+      }
+    }
+  }
+}

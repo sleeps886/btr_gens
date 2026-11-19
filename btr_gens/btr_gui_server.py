@@ -31,7 +31,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
-plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "WenQuanYi Zen Hei",
+plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "WenQuanYi Zen Hei", "PingFang SC", "Arial Unicode MS",
                                    "DejaVu Sans"]
 plt.rcParams["axes.unicode_minus"] = False
 
@@ -601,9 +601,9 @@ HOST = "127.0.0.1"
 PORT = 8765
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RUN_LOCK = threading.Lock()
-from btr_batch import BatchManager
+from btr_auto import StudioBatchManager
 BATCH_ROOT = os.path.join(BASE_DIR, "btr_out")
-BATCHES = BatchManager(BATCH_ROOT, run_simulation, RUN_LOCK)
+BATCHES = StudioBatchManager(BATCH_ROOT, run_simulation, RUN_LOCK)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -622,6 +622,13 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = self.path.split("?")[0]
+        if path == "/batch/active":
+            with BATCHES.lock:
+                active_ids = [j['id'] for j in BATCHES.jobs.values()
+                              if j['state'] in ('queued', 'running', 'stopping')]
+            active = [BATCHES.status(job_id) for job_id in active_ids]
+            self._send(200, json.dumps({"jobs": active}, ensure_ascii=False))
+            return
         if path.startswith("/batch/status/"):
             try:
                 self._send(200, json.dumps(BATCHES.status(path.rsplit("/", 1)[-1]), ensure_ascii=False))
@@ -635,8 +642,26 @@ class Handler(BaseHTTPRequestHandler):
             if os.path.commonpath([root, fp]) != root or not os.path.isfile(fp):
                 self._send(404, "not found", "text/plain")
                 return
-            ctype = "image/png" if fp.endswith(".png") else "application/octet-stream"
+            ctype = "image/png" if fp.endswith(".png") else "application/json; charset=utf-8" if fp.endswith(".json") else "application/octet-stream"
             with open(fp, "rb") as f:
+                self._send(200, f.read(), ctype)
+            return
+        studio_assets = {
+            "/studio/advanced": ("btr_studio.html", "text/html; charset=utf-8"),
+            "/quick.css": ("btr_quick.css", "text/css; charset=utf-8"),
+            "/quick.js": ("btr_quick.js", "text/javascript; charset=utf-8"),
+            "/studio": ("btr_quick.html", "text/html; charset=utf-8"),
+            "/studio/": ("btr_quick.html", "text/html; charset=utf-8"),
+            "/studio.js": ("btr_studio.js", "text/javascript; charset=utf-8"),
+            "/studio.css": ("btr_studio.css", "text/css; charset=utf-8"),
+        }
+        if path == "/studio/defaults":
+            from btr_studio import default_config
+            self._send(200, json.dumps(default_config(), ensure_ascii=False))
+            return
+        if path in studio_assets:
+            filename, ctype = studio_assets[path]
+            with open(os.path.join(BASE_DIR, filename), "rb") as f:
                 self._send(200, f.read(), ctype)
             return
         if path == "/" or path == "/index.html":
@@ -667,6 +692,17 @@ class Handler(BaseHTTPRequestHandler):
         self._send(404, "not found", "text/plain")
 
     def do_POST(self):
+        if self.path == "/studio/preview":
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                if not 0 < length <= 200000:
+                    raise ValueError("配置请求大小无效")
+                from btr_studio import preview_config
+                result = preview_config(json.loads(self.rfile.read(length).decode("utf-8")))
+                self._send(200, json.dumps(result, ensure_ascii=False))
+            except (ValueError, TypeError, KeyError, IndexError, OverflowError) as exc:
+                self._send(400, json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
+            return
         if self.path in ("/batch/start", "/batch/stop"):
             try:
                 length = int(self.headers.get("Content-Length", 0))
